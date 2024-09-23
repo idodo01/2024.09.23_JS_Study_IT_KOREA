@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    // if 조건문
+    if(true) {
+        console.log('if가 실행됩니다');     
+    } 
+    else if(false) {
+        console.log('else if가 실행됩니다');
+    }
+    else {
+        console.log('else가 실행됩니다');
+        
+    }
+
+    // switch문 (1:1 비교) 
+    var addr='대구';
+    switch(addr) {
+        case '서울':
+            console.log('서울에 살고 있어요');  
+            break;
+        case '대구':
+            console.log('대구에 살고 있어요');  
+            break;
+        case '대전':
+            console.log('대전에 살고 있어요');  
+            break;
+        default:
+            console.log('서울, 대구, 대전이 아닌 곳에 살고 있어요');
+            
+    }
+
+    // while 반복문
+    let n = 1
+    while(n<4) {
+        console.log('반복중... n:'+n);
+        n++;
+    }
+
+    // for 반복문
+    // 초기화 조건식 증감식
+    for(let i = 0; i < 3; i++) {
+        console.log('i: '+i);
+        
+    }
+</script>

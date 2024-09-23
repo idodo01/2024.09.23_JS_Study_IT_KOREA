@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var v = 1;
+    v = 10;
+
+    // 1. 배열의 생성
+    var array = [10,20,30];
+    console.log(array);
+    // { 0: 10, 1: 20, 2: 30, length:3 } 이런식으로 내부로 생성됨
+    // 그렇기에 이것도 가능
+    console.log(array['length']);
+    console.log(array.length);
+
+    // 객체로 배열 생성
+    var array2 = new Array(10,20,30);
+    console.log(array2);
+    console.log(array[0]);
+    
+    // 2. 
+    // push(): 값을 맨뒤에 추가하기
+    array.push(40)
+    console.log(array);
+    // pop(): 맨뒤의 값을 꺼내오기
+    var value = array.pop()
+    console.log('array:'+array+'/ 꺼내온 값:'+value);
+
+    // unshift(): 맨 앞에 추가하기
+    array.unshift(0);
+    console.log(array);
+    // shift(): 맨 앞의 값 꺼내오기
+    var value = array.shift()
+    console.log('array:'+array+'/ 꺼내온 값:'+value);
+
+</script>
