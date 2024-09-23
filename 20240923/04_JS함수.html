@@ -12,16 +12,131 @@
 <script>
     // 함수(function) == 기능
 
-    onoff() // 3. 생성전에 실행도 가능함
+    // 1. 인수 O 함수
+    onoff() // 3) 생성전에 실행도 가능함
 
-    // 1. 함수 생성
-    function onoff() {
-        console.log('전원이 어떻게 되었다');
+    // 1) 함수 생성
+    function onoff(status) {
+        if(status == 'on') {
+            console.log(`전원이 켜졌어요`);
+        } else if(status=='off') {
+            console.log(`전원이 꺼졌어요`);
+        } else {
+            console.log(`전원`);
+        }
+    } 
+    // 2) 함수 호출
+    onoff('on')
+    onoff('off')
+
+    // ================================================
+    // 2. 반환값 O 함수
+
+    // 2) 전역 변수
+    var sum = 0;
+    function calculation() {
+        // 1) 지역 변수 (local variable)
+        // 함수내에서만 사용가능
+        // 함수가 끝나면 종료되어 메모리에서 사라짐
+        let num1 = 10;
+        let num2 = 20;
+        sum = num1 + num2;
+        return num1 + num2;
     }
-    // 2. 함수 호출
-    onoff()
-    onoff()
-    onoff()
+    var result =  calculation();
+    console.log(result);
 
+    // ================================================
+    // 3. 인수 O, 반환값 O
+    function calculation2 (num1, num2){
+        let sum = num1+num2;
+        return sum;
+    }
+
+    var result = calculation2(1,2);
+    console.log('result: '+result);
+    
+    // ================================================
+    // 4.
+
+    function calculation3(numbers) {
+        console.log('numbers3: '+numbers);
+        
+    }
+
+    calculation3(1,2,3,4,5) // 1만 전달됨
+    calculation3([1,2,3,4,5]) // 배열 통째로 전달됨
+
+    // 1) 가변 매개변수 사용
+    // ...를 이용하면 자동으로 모든 값을 배열로 받는다
+    function calculation4(...numbers) {
+        console.log('numbers4: '+numbers);
+        
+    }
+    calculation4(1,2,3,4,5) // 1~5 배열에 담겨서 전달됨
+
+    // 2) 매개변수, 가변 매개변수 동시사용
+    function calculation5(n1,...numbers) {
+        console.log('n1:'+n1+', numbers5: '+numbers);
+        
+    }
+    calculation5(1,2,3,4,5) // 1, 2~5 배열에 남겨서 전달됨
+
+    // ================================================
+    // 5. 함수를 변수로 만들기
+
+    var myFunc1 = function() {
+        console.log('함수를 변수로 만들기');
+        
+    }
+    
+    myFunc1();
+    // (주의) 변수처럼 함수를 정의한 것이기 때문에,
+    // 생성 전에 호출할 수 없음
+
+    // ================================================
+    // 6. 화살표 함수
+
+    // 1) 기본 함수
+    function myFunc2() {
+        console.log('기본함수');
+    }
+    myFunc2();
+
+    // 2) 화살표 함수
+    // function 없애고,
+    // 이름(myFunc2) 없애고 (화살표함수는 익명함수)
+    () => {
+        console.log('ㅋㅋ');
+    }
+
+    // (1) 호출을 위해서 변수로 사용해야함
+    var myFunc22 = () => {
+        console.log('화살표함수 변수사용해서');
+    }
+    myFunc22();
+
+    // (2) 즉시 실행 함수: 함수를 만들자마자 바로 호출
+    // 많이 사용하지는 않음
+    (() => {
+        console.log('즉시 실행 함수');
+    })()
+    
+
+    // 3) 매개변수있는 화살표 함수
+    function myFunc3 (arg) {
+        console.log(arg);
+    }
+    myFunc3('매개변수있는 일반함수')
+
+    var myFunc33 = (arg) => {
+        console.log(arg);
+    }
+    myFunc33('매개변수있는 화살표함수');
+
+    // 여기서 ()와 {}를 생략할 수도 있음
+    // 단, 매개변수와 코드가 각각 한 가지일 경우에만
+    var myFunc333 = arg => console.log(arg);
+    myFunc333('매개변수있는 화살표함수, () {} 생략함');
 
 </script>
