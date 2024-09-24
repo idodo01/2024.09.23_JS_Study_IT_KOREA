@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    // 1. 함수
+    function fun1() {
+        console.log('func1이 실행되었다!');
+    }
+    function fun2() {
+        console.log('func2가 실행되었다!');
+    }
+    function fun3(check) {
+        console.log('func3가 실행되었다!');
+        if (check == 1) {
+            fun1();
+        }
+        else if (check == 2) {
+            fun2();
+        }
+    }
+
+    fun3(1);
+
+    // 2. 콜백함수
+    function fun33(callback_fun) {
+        console.log('fun33가 실행되었다!');
+        callback_fun(); // fun1함수가 실행됨
+    }
+    fun33(fun1);
+
+    // 3. 함수.toString : 함수내용을 문자화
+    var functionString = fun33.toString();
+    console.log(functionString);
+
+
+
+    
+</script>

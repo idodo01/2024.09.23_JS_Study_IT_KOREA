@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var s = 'Here is my home';
+    // 1. 문자열 내에 있는 특정 문자열 가져오기
+    // substring, slice
+    s.substring(8,10) // (마지막 숫자 포함안함) 8,9번째 문자열 가져옴 'my'
+    s.slice(8,10) 
+
+    // slice는 마이너스 인덱스도 사용가능
+    s.slice(-4); //시작 인덱스만 적으면, 시작부터 끝까지 가져올 수 있음'home'
+
+    // 2. 문자열 내에 어떤 문자열이 있는지 확인하기
+    // 엄청 자주 사용함
+    // includes() 
+    var result = s.includes('my') // 대소문자 구분함
+    console.log('my가 존재함?: ',result);
+
+    var result = s.startsWith('Here'); // Here로 시작하는가?
+    var result = s.endsWith('home'); // home으로 끝나는가?
+
+    // 3. (문자열내의) 문자열을 다른 문자열로 변경하기
+    // 엄청 자주 사용함
+    // replace()
+    var result = s.replace('sweet','rainy');
+    console.log(result);
+
+    // 4. (문자열내의) 문자열을 특정 문자 기준으로 분리시키기
+    // split()
+    var result = s.split(' ');
+    console.log(result);
+    // 빈문자를 넣으면 하나씩 분리시켜줌
+    var result = s.split('');
+    console.log(result);
+
+    // 5. 문자열을 전부 대/소문자로 변환시키기
+    s.toUpperCase();
+    s.toLowerCase()
+
+    // 6. 문자열 양쪽 공백 없애기
+    // 웹쪽 엄청자주쓰임
+    // trim()
+    var s = '        hi ! my home           '
+    s.trim(); // 양쪽 공백 없애기, 중간중간에 있는건 x
+
+</script>

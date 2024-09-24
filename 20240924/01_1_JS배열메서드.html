@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var arr = [10,20,30,40]
+
+    // 1. fill : 값 재정의
+    //arr[0] = 50;
+    //arr[1] = 50;
+    arr.fill(50, 0, 2); // 채울 값, 어디부터, 어디까지
+    console.log('fill',arr);
+
+    // 2. reverse()
+    arr.reverse();
+    console.log('reverse: '+ arr);
+
+    // 3. splice() 
+    //자주 쓰임
+    var arr = [10, 20, 30, 40];
+    arr.splice(0,1,100,200,300) // 인덱스 몇 번부터, 지울 개수, 넣을 값1, 넣을 값2 ...
+    console.log('splice: :'+arr) // 40,30,50,50
+
+    // 4. indexOf() 
+    //자주 쓰이진 않음, for문을 알면 값을 얻을 수 있으니
+    var arr = [10,20,30,40]
+    var result = arr.indexOf(30); // 왼쪽부터 30을 찾아라
+    console.log('30 index=>', result);
+    var result = arr.lastIndexOf(30); // 오른쪽부터 30을 찾아라
+    console.log('30 r-index=>', result);
+    
+    // 5. slice() 
+    // 자주 쓰임 
+    var result = arr.slice(0,3) // index 0 ~ 3까지만 잘라서 가져와라
+    console.log(result);
+    var result = arr.slice(-3,-1) // (뒤에서부터 세는) 마이너스 인덱스 사용가능
+    console.log(result);
+
+    // 6. join()
+    // 꽤 중요함
+    var arr = ['a', 'b', 'c', 'd'];
+    // 'abcd'를 만들고 싶다!
+    var result = arr.join(' '); // (): 빈칸이면 ',' 으로 이어줌
+    console.log('join: ',result);
+
+    // 7. concat()
+    var arr1 = [1,2,3];
+    var arr2 = [4,5,6];
+    var result = arr1 + arr2;
+    console.log('arr1 + arr2:',result); // '1,2,34,5,6' 이런식으로 이어붙음
+    var result = arr1.concat(arr2);
+    console.log('arr1 + arr2:',result); // 배열로 반환함
+
+
+</script>

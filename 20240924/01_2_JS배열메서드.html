@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1. for문와 if문 사용
+    var arr = [10,20,30,40,50];
+    var check = false
+    for(let i = 0; i < 5; i++) {  //  100보다 큰 수가 있어야 true
+        if(arr[i]>100) {
+            check = true;
+        }
+    }
+    if(check==true) {
+        console.log('100보다 큰 수가 있습니다');
+    }else {
+        console.log('100보다 큰 수가 없습니다');
+    }
+
+    // 2. function 이용하기
+    function check_100 () {
+        for(let i = 0; i < 5; i++) {  //  100보다 큰 수가 있어야 true
+            if(arr[i]>100) {
+                return '100보다 큰 수가 있습니다';
+            }
+        }
+        return '100보다 큰 수가 없습니다';
+    }
+    console.log(check_100());
+
+    // 3. 배열.every()
+    var arr = [10,20,30,40,50];
+    var result = arr.every(check_100_2);
+
+    // (1)
+    function check_100_2(num) {
+        if (num > 100) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    // 다 똑같이 작동한다
+    // (2) 리턴 함수
+    function check_100_3(num) {
+        return (num > 100);
+    }
+
+    // (3) 화살표 함수
+    var check_100_4 = (num) => {
+        return (num > 100);
+    }
+
+    // (4) 화살표 함수
+    // return 밖에 없는 한 줄이면,
+    // retrun 도 생략해야함
+    var check_100_4 = (num) => (num > 100);
+
+    // 위에 변수 다 가져와서, 화살표함수로만 표현하면
+    var arr = [10,20,30,40,50];
+    var result = arr.every(num => num > 100); // 이렇게 간단하게 됨
+
+
+    // 4. 배열.forEach();
+    // 배열내의 요소를 처음부터 끝까지 순서대로 순회함
+    
+    // (1)
+    arr.forEach(each);
+    function each(num) {
+        console.log(num);
+    } 
+
+    // (2) 화살표함수로 표현하기
+    arr.forEach(num => console.log(num));
+    // (3) 이렇게까지도 간략하게 표현가능
+    arr.forEach(console.log);
+
+
+    // <참고> 원래 forEach는 매개변수가 3개다
+    //forEach(num, index, array) 
+    // 그래서 each의 매개변수도 이렇게 바꿀 수 있다
+    arr.forEach(each);
+    function each(num, index, array) {
+        console.log(num, index, array);
+    } 
+
+    // 5. 배열.filter
+    // filter에 전달된 함수에서 true가 반환된 요소만 result배열에 들어감
+    var arr = [1,2,3,4,5]
+    var result = arr.filter(odd);
+    
+    // (1)
+    function odd(num) {
+        if(num%2==1) {
+            return true;
+        }
+    }
+    console.log(result);
+
+    // (2) if문을 생략
+    function odd(num) {
+        return num%2==1;
+    }
+
+    // (3) 화살표함수로 만들기
+    (num) => num%2==1;
+
+    // (4) 화살표함수로 만들었으니 바로 넣을 수도 있음
+    var result = arr.filter((num) => num%2==1);
+
+
+    // 6. map : 하나하나 요소에, 원하는 조건을 넣어, 값을 바꿔줌
+    var arr = [1,2,3,4,5]
+    arr.map(multiple);
+    function multiple(num) {
+        return num * 10;
+    }
+    function multiple2(num) {
+        if(num % 2 == 0) {
+            return num * 10;
+        }
+    }
+
+    // + 삼항식 사용하기
+    // var test =  ( 1 == 1 ) ? '1이네요' : '1이 아니네요'
+    function multiple3(num) {
+        return  (num % 2 == 0) ? num * 10 : num;
+        
+    }
+
+    // 생략해서 바로 넣기
+    arr.map(num => (num % 2 == 0) ? num * 10 : num);
+    
+
+    // 7. reduce()
+    var arr = [1,2,3,4,5];
+    var sum = 0;
+    for(let i = 0; i < arr.length; i++) {
+        sum+=arr[i];
+    }
+    arr.reduce(my_sum,0); // 세번째 값 0으로 지정해줬음
+
+    // 첫번째 값(1)이 result로 들어가고, 두번째 값(2)이 current 그리고 그 인덱스가 index(1)로
+    function my_sum(result, current, index) {
+        console.log(result, current, index);
+        // 리턴하는 값이 result가 됨
+        return result+current;
+    }
+
+    // 8. sort()
+    var arr = [5,67,2,5,44,3]
+    arr.sort();
+    console.log(arr); // 실제 숫자 정렬이 아닌, 사전순으로 정렬됨
+
+    // 공식으로 외울 것, 자바 배울 때 다시 할 것
+    arr.sort((x,y) => x-y);
+    console.log(arr);
+
+    // 역순 정렬
+    arr.reverse;
+    console.log(arr);
+
+</script>
