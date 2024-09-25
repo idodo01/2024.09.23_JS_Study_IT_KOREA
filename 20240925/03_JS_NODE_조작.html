@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div>DIV</div>
+        <span>SPAN</span>
+    </section>
+
+    <article>
+        <p>This is Article</p>
+    </article>
+</body>
+</html>
+<script>
+    const sectionTag = document.querySelector('section');
+    const divTag = document.querySelector('div');
+
+    // 1. getter 가져옴
+    // 줄바꿈 등 텍스트 형태도 그대로 가져온다
+    console.log(sectionTag.textContent);
+    // 태그등 html 그대로 가져온다
+    console.log(sectionTag.innerHTML);
+    // 텍스트 부분만 가져온다
+    console.log(sectionTag.innerText);
+
+    //     DIV
+    //     SPAN
+    
+
+    //     <div>DIV</div>
+    //     <span>SPAN</span>
+    
+    // DIV
+    // SPAN
+    
+    // 2. setter(설정함)
+    // divTag.innerText='안녕하세요'; // 텍스트만 변경 
+    // divTag.innerHTML='<b>안녕하세요<b>'; // 태그 사용하여 변경
+    sectionTag.innerHTML='<b>안녕하세요<b>'; // 상위 태그를 수정하면, 하위 태그도 모두 바뀐다
+
+    // ===================================
+    // <요소를 만들어서 집어 넣는 방법>
+    // 1. createElement와 appendChild 이용하기
+    const newInputTag = document.createElement('input');
+    document.body.appendChild(newInputTag);
+    // sectionTag.appendChild(newInputTag); // newInputTag 그대로 하면, 위에서 만들어졌던 것이 이동함
+    
+    // 그렇기에 따로 만들어야함
+    const newInputTag2 = newInputTag.cloneNode();
+    sectionTag.appendChild(newInputTag2); 
+    
+    // article 안에 section 만들어 넣기
+    const articleTag = document.querySelector('article');
+    articleTag.appendChild(sectionTag.cloneNode(true)); // true를하면 자식까지 복사
+
+    // 
+    // 2. insertAdjacentElement 이용하기
+    const textarea = document.createElement('textarea');
+    articleTag.insertAdjacentElement("afterend",textarea); // 어디에, 무슨 태그를 넣겠습니다.
+
+    // 3. insertAdjacentHTML 이용하기
+    // HTML 태그 자체로 넣는다
+    articleTag.insertAdjacentHTML("afterend","<textarea value='하이요'></textarea>");
+    
+</script>

@@ -54,7 +54,24 @@ console.log(capitalizeWords("hello world")); // "Hello World"
 // 4. 문자열 압축하기
 // 반복되는 문자를 숫자로 압축하는 함수를 작성하세요.
 function compressString(str) {
-    // 코드를 작성하세요.
+    var newStr = '';
+    let count = 0;
+    for (let i of str) {
+        
+        for(let j of str) {  
+            if(i == j) {
+                count++;
+            }
+        }
+        newStr += i+count;
+        console.log(newStr);
+        
+        
+        count = 0; // 초기화
+    }
+    // 이어풀어야함---------------------------
+    
+    return newStr;
 }
 console.log(compressString("aaabbc")); // "a3b2c1"
 

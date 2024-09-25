@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="01_JS_WEP.js"></script> <!--외부스크립트를 사용하는 것이 대부분-->
+</head>
+<body>
+    <script>//여기에서도 가능하다</script>
+</body>
+</html>
+<script> // html 뒤에 <script> 하는 것은 꼭 필요할 때만
+    let myVar1 = 10;
+    console.log(myVar1);
+
+    // 01_JS_WEP.js를 불러오기 때문에, myVar2호출가능
+    console.log(myVar2);
+    console.log(window);
+
+    // 1. prompt, alert
+    // let name = prompt('이름 입력하세요~ ');
+    // alert(`당신의 이름은 ${name} 이군요!`);
+    
+    // 2. confirm
+    // let check = confirm('확인하시겠습니까?');
+    // alert(check); // 확인하면 true, 취소하면 false
+    
+    // 3. window
+    // window.open('http://www.google.com', 'popup', 'width=500,height=500');
+    
+    // 4. warn, error
+    console.warn('경고~');
+    console.error('에러!');
+
+    // 5. location 객체
+    console.log(location.href); // url
+    console.log(location.search);
+    console.log(location.pathname); // 상대경로
+    
+    // + 창 이동할 수도 있음
+    // (참고) history 안남음, 뒤로가기 안됨
+    // location.href = "http://naver.com";
+
+
+    
+</script>

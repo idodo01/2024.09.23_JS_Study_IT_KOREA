@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div:nth-child(2) {
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>DIV1</div>
+        <div>DIV2</div>
+        <div>DIV3</div>
+    </section>
+
+    <section>
+        <span class="element">SAPN1</span>
+        <span class="element">SAPN2</span>
+        <span class="element">SAPN3</span>
+    </section>
+
+    <article id="myArticle">
+        article
+        <input type="text" name="myName">
+    </article>
+</body>
+</html>
+<script>
+    // 1.
+    const body = document.body;
+    console.log(body); // <body></body>
+    
+    const firstChild = body.firstChild;
+    console.log(firstChild); // #text
+
+    const lastChild = body.lastChild;
+    console.log(lastChild);
+
+    //
+
+    const firstElementChild = body.firstElementChild;
+    console.log(firstElementChild);
+
+    // =========================================
+    // 2. getElementsBy~
+    // 1) TagName : 해당 이름에 맞는 태그들을 전부 배열에 모아서 가져온다
+    var sections = document.getElementsByTagName('section');
+    console.log(sections);
+
+    var articles = document.getElementsByTagName('article');
+    //console.log(articles);
+    console.log(articles[0]);
+    
+    // 2) ClassName
+    var elements = document.getElementsByClassName('element');
+    console.log(elements);
+
+    // 3) Id
+    var myArticle = document.getElementById('myArticle');
+    console.log(myArticle);
+
+    // 4) (Input태그의)Name
+    var myNames = document.getElementsByName("myName");
+    console.log(myNames);
+
+    // ============================
+    // 3. querySelector
+    const div = document.querySelector('div'); // 하나만 가져온다
+    console.log(div);
+
+    const divs = document.querySelectorAll('div'); // 모두 가져온다
+    console.log(divs);
+    
+    const div2child = document.querySelector('div:nth-child(2)'); // div 중에서 두번째 태그만
+    console.log(div2child);
+
+    // document.getElementsByClassName('element');랑 똑같이 작동함
+    const elements2 = document.querySelectorAll('.element'); 
+    console.log(elements2);
+
+    // =============================
+    // 4. 
+    // 모두 똑같이 작동
+    document.body;
+    document.querySelector('body');
+    document.getElementsByTagName('body');
+
+</script>
