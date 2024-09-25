@@ -11,7 +11,7 @@
 </html>
 <script>
     // 1. for문와 if문 사용
-    var arr = [10,20,30,40,50];
+    var arr = [10,20,30,40,500];
     var check = false
     for(let i = 0; i < 5; i++) {  //  100보다 큰 수가 있어야 true
         if(arr[i]>100) {
@@ -35,7 +35,7 @@
     }
     console.log(check_100());
 
-    // 3. 배열.every()
+    // 3. 배열.every() => for문의 역할을 함
     var arr = [10,20,30,40,50];
     var result = arr.every(check_100_2);
 
@@ -72,18 +72,20 @@
     // 4. 배열.forEach();
     // 배열내의 요소를 처음부터 끝까지 순서대로 순회함
     
+    console.log('forEach: ');
+    
     // (1)
     arr.forEach(each);
     function each(num) {
         console.log(num);
     } 
-
+    console.log('forEach 화살표함수사용: ');
     // (2) 화살표함수로 표현하기
     arr.forEach(num => console.log(num));
     // (3) 이렇게까지도 간략하게 표현가능
     arr.forEach(console.log);
 
-
+    console.log('forEach 매개변수3: ');
     // <참고> 원래 forEach는 매개변수가 3개다
     //forEach(num, index, array) 
     // 그래서 each의 매개변수도 이렇게 바꿀 수 있다
@@ -92,11 +94,12 @@
         console.log(num, index, array);
     } 
 
-    // 5. 배열.filter
+    // 5. 배열.filter : 조건에 맞는 요소만 가져오기
     // filter에 전달된 함수에서 true가 반환된 요소만 result배열에 들어감
     var arr = [1,2,3,4,5]
     var result = arr.filter(odd);
     
+    console.log('filter: ');
     // (1)
     function odd(num) {
         if(num%2==1) {
@@ -116,10 +119,11 @@
     // (4) 화살표함수로 만들었으니 바로 넣을 수도 있음
     var result = arr.filter((num) => num%2==1);
 
-
+   
     // 6. map : 하나하나 요소에, 원하는 조건을 넣어, 값을 바꿔줌
+    console.log('map: ');
     var arr = [1,2,3,4,5]
-    arr.map(multiple);
+    console.log(arr.map(multiple));
     function multiple(num) {
         return num * 10;
     }
@@ -141,6 +145,7 @@
     
 
     // 7. reduce()
+    console.log('reduce: ');
     var arr = [1,2,3,4,5];
     var sum = 0;
     for(let i = 0; i < arr.length; i++) {
@@ -156,6 +161,7 @@
     }
 
     // 8. sort()
+    console.log('sort: ');
     var arr = [5,67,2,5,44,3]
     arr.sort();
     console.log(arr); // 실제 숫자 정렬이 아닌, 사전순으로 정렬됨

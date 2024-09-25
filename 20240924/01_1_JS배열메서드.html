@@ -15,35 +15,38 @@
     // 1. fill : 값 재정의
     //arr[0] = 50;
     //arr[1] = 50;
-    arr.fill(50, 0, 2); // 채울 값, 어디부터, 어디까지
-    console.log('fill',arr);
+    console.log('arr: '+arr); // 10,20,30,40
+    arr.fill(50, 0, 2); // 채울 값, a부터, (b-1)까지 (인덱스 0부터 1까지)
+    console.log('fill 후: '+arr); // 50,50,30,40
 
-    // 2. reverse()
+    // 2. reverse() : 인덱스 반대로
     arr.reverse();
-    console.log('reverse: '+ arr);
+    console.log('reverse: '+ arr); // 40,30,50,50
 
     // 3. splice() 
     //자주 쓰임
     var arr = [10, 20, 30, 40];
-    arr.splice(0,1,100,200,300) // 인덱스 몇 번부터, 지울 개수, 넣을 값1, 넣을 값2 ...
-    console.log('splice: :'+arr) // 40,30,50,50
+    arr.splice(0,1,100,200,300) // 인덱스 a 번부터, 지울 개수, 넣을 값1, 넣을 값2 ...
+    console.log('splice: :'+arr) // 100,200,300,    20,30,40
 
-    // 4. indexOf() 
+    // 4. indexOf() : 값의 인덱스 출력
     //자주 쓰이진 않음, for문을 알면 값을 얻을 수 있으니
     var arr = [10,20,30,40]
     var result = arr.indexOf(30); // 왼쪽부터 30을 찾아라
-    console.log('30 index=>', result);
+    console.log('30 index=>', result); // 2
     var result = arr.lastIndexOf(30); // 오른쪽부터 30을 찾아라
-    console.log('30 r-index=>', result);
+    console.log('30 r-index=>', result); // 2
     
-    // 5. slice() 
+    // 5. slice(a,b) : index a ~ (b-1) 잘라서 가져오기
     // 자주 쓰임 
-    var result = arr.slice(0,3) // index 0 ~ 3까지만 잘라서 가져와라
-    console.log(result);
-    var result = arr.slice(-3,-1) // (뒤에서부터 세는) 마이너스 인덱스 사용가능
-    console.log(result);
+    var result = arr.slice(0,3) // index 0 부터 (3-1)까지만 잘라서 가져와라
+    console.log(result); // [10, 20, 30]
 
-    // 6. join()
+    // (뒤에서부터 세는) 마이너스 인덱스 사용가능
+    var result = arr.slice(-3,-1) // index -3 부터 (-1-1)까지만 잘라서 가져와라
+    console.log(result); // [20, 30]
+
+    // 6. join(): 이어붙이기
     // 꽤 중요함
     var arr = ['a', 'b', 'c', 'd'];
     // 'abcd'를 만들고 싶다!
@@ -54,7 +57,7 @@
     var arr1 = [1,2,3];
     var arr2 = [4,5,6];
     var result = arr1 + arr2;
-    console.log('arr1 + arr2:',result); // '1,2,34,5,6' 이런식으로 이어붙음
+    console.log('arr1 + arr2:',result); // 그냥 플러스로 붙이면, '1,2,34,5,6' 이런식으로 이어붙음
     var result = arr1.concat(arr2);
     console.log('arr1 + arr2:',result); // 배열로 반환함
 
