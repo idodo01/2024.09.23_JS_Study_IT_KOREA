@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <section>section</section>
+</body>
+</html>
+<script>
+    // 태그 가져오기
+    const input = document.querySelector('input');
+    const section = document.querySelector('section');
+
+    // style 속성 <setter>
+    input.style.color = 'red';
+    input.style.backgroundColor = 'yellow';
+    section.style.fontSize = '25px'; // 문자열로 px까지 작성
+
+    // style 속성 <getter>   
+    // 2) setter로 넣는 속성은 style=""로 들어가기에 읽어올 수있음
+    console.log(input.style.color); 
+    
+    // 1) 자바스크립트가 css 파일을 읽지못함
+    // 태그내에 style=""로 들어간 속성만 읽어올 수 있음
+    console.log(section.style.width);     // 값이 안나옴
+    // getComputedStyle를 사용해서 가져올 수 있음
+    console.log(getComputedStyle(section).width);
+
+    // 3) 예제: section 넓이 가져와서 2로 나누기
+    // 읽어오면 px까지 나옴
+    console.log(getComputedStyle(section).width);
+    // (1) 해결 replace // 문자열로 반환해줌
+    console.log(getComputedStyle(section).width.replace('px',''));
+    // 앞에 +를 붙여서, 숫자로 바꿔줘서 계산
+    console.log(+getComputedStyle(section).width.replace('px','')/2);
+    
+    // section.style.width는 'px'가 붙어야해서
+    const newWidth = +getComputedStyle(section).width.replace('px','')/2        
+    section.style.width =  newWidth +'px';
+
+</script>

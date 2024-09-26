@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>순번</td>
+                <td>제목</td>
+                <td>날짜</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>제목</td>
+                <td>2024-09-26</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <section>
+        <div>
+            이름:<input type="text" id="name"><br>
+            나이:<input type="number" id="age"><br>
+            
+            <button type="button">추가</button>
+        </div>
+        <hr>
+        <table id="person-list" border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        
+    </section>
+</body>
+</html>
+
+
+<script>
+    const table = document.querySelector('table');
+    //table.caption.textContent = '제목';
+
+    const tbody = table.tBodies.item(0);
+
+    // insertRow
+    const row1 = tbody.insertRow(1);
+
+    const row1col0 = row1.insertCell(0);
+    row1col0.textContent = '2';
+    const row1col1 = row1.insertCell(1);
+    row1col1.textContent = '제목';
+    const row1col2 = row1.insertCell(2);
+    row1col2.textContent = '2024-09-27';
+
+    // ===============================================
+    const addButton = document.querySelector('section button');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    
+    // 이렇게 가져올 수도 있음
+    // const InputTag = document.getElementsByTagName('input');
+    // InputTag[0];
+    // InputTag[1];
+    
+    const person_list = document.getElementById('person-list');
+
+    const person_list_tbody = person_list.tBodies.item(0);
+
+
+    
+    // 행추가
+    const person_list_row1 = person_list_tbody.insertRow(0);
+    
+    // insertRow
+    // insertRow(0): 여기서 0인 이유는 tbody안에 아무것도 없어서
+    // 인덱스 0으로 들어가야하기 때문
+
+    // => 추가적으로 열을 추가하려면
+    // 버튼 눌렀을 때 insertRow(n) 값이 올라가도록 코딩해야함
+
+    // 열추가
+    const person_list_row1col0 = person_list_row1.insertCell(0);
+    const person_list_row1col1 = person_list_row1.insertCell(1);
+
+    addButton.onclick = () => {
+        console.log('동작');
+
+        person_list_row1col0.textContent = nameInput.value;
+        person_list_row1col1.textContent = ageInput.value;
+        
+    }
+</script>

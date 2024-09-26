@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>DIV태그</div>
+    <input type="text">
+    <input type="checkbox">
+    <a href="#" class="link url">링크</a> <!--클래스가 따로따로인 것-->
+</body>
+</html>
+
+<script>
+    var divTag = document.querySelector('div'); 
+    var aTag = document.querySelector('a'); 
+    var inputTag = document.querySelector('input'); 
+    
+    // 1. <setter>
+        inputTag.value = '텍스트';
+    inputTag.placeholder = '문자를 입력하세요';
+
+    // input태그 타입 변경하기
+    // inputTag.type = 'password'; // 방법 1 
+    inputTag.setAttribute('type','password'); // 방법2
+
+    // 2. <getter>
+    console.log(inputTag.value);
+
+    // 3. checkbox인 input태그 가져오기 <getter>
+    // document.querySelector('input:nth-child(2)'); 
+    const checkboxInputTag = document.querySelector('input[type=checkbox]')
+    console.log(checkboxInputTag);
+     // 4. checkbox인 checked 속성 추가하기 <setter>
+    // checkboxInputTag.checked = true; // 방법1
+    checkboxInputTag.setAttribute('checked', ''); // 방법2
+    // setAttribute의 두번째 인자를 '' 빈문자로 작성시, 속성 이름만설정된다
+
+
+    // 5. 프로퍼티로 설정하는 것과 setAttribute 비교하기
+    // 1) 프로퍼티로 설정하면, 눈에는 안보임
+    // but 값을 가져오면 나옴
+    divTag.myAttr = 'zz';
+    console.log(divTag.myAttr);
+    // 2) setAttribute로 설정하면 태그에 속성으로 들어감
+    divTag.setAttribute('myAttr2','xxx');
+
+    // 3) class 와 id 속성을 각각 넣어보기
+    // class와 id는 프로퍼티로 넣어도 바로 적용됨
+    divTag.className = '클래스속성넣기'
+    divTag.id = 'id넣기';
+
+    // 4) classList
+    // 자주 사용된다
+    const aClassList = aTag.classList;
+    console.log(aClassList);
+    aClassList.remove('url'); // 제거
+    aClassList.add('aTag'); // 추가
+    
+    // 6. hasAttribute : 속성 포함하고 있는지 확인하기
+    const isChecked = checkboxInputTag.hasAttribute('checked');
+    // 7. attributes : 모든 속성 가져오기
+    const attributes  = checkboxInputTag.attributes;
+
+    // 8. toggleAttribute
+    // 속성이 있으면 제거하고
+    // 속성이 없으면 추가한다
+    aTag.toggleAttribute('href');  // 제거함
+    aTag.toggleAttribute('href');  // 추가함
+
+    // true, false를 직접 넣을 수도 있다
+    aTag.toggleAttribute('href',false);  // 제거함
+    aTag.toggleAttribute('href',true);  // 추가함
+
+
+    // 9. 태그 제거
+    aTag.remove();
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,95 @@
+1 (20240910)
+
+<!-- 1. !하고 엔터 치면 자동 구조만들어짐-->
+<!-- 2. alt + b 누르면 브라우저 실행됨 ((open in browser 확장 프로그램))-->
+<!-- 3. (브라우저에서) ctrl + u 누르면 html를 볼 수 있음-->
+
+<!--lorem ipsum(로렘 입슘) 
+ : 웹페이지 대략적인 레이아웃을 잡을 때 사용, 무작위 텍스트
+    (ex. loem*1000) -->
+=========================================
+2 (20240911) - ctrl+스페이스로 선택창
+<!-- picsum : 랜덤 사진 가져오기 ((lorem pics 확장프로그램))
+
+<!-- ctrl + alt + 화살표: 여러개 선택 가능-->
+<!-- (태그를 선택하고) alt 키로 위치이동가능-->
+<!-- alt + shift + 화살표: 텍스트 복사 붙여넣기-->
+
+<!-- th*3 : 젠코딩-->
+<!--  table[border="1"] -->
+
+레이아웃 주는 방식의 변화
+table 
+> div, span 
+> 시맨틱 태그 (권장인데, 자주는 아직 안쓰임)
+
+===========================================
+3 (20240912)
+
+1)  #section h1, #section p {}
+    #section h1, p {}
+
+    두 가지는 다른 것
+     
+2) <style>
+    input[type=text] {color:red;} 
+</style>
+
+<input type="text"> 태그에 css 적용
+
+3) table를 자손선택자로 css를 적용할 때, 
+table과 tr 사이에 자동으로 생기는 tbody를 넣어줘야한다
+<style>
+    table>tbody>tr>th
+</style>
+
+4) #으로 하면 자동 div태그로
+#header>h1+(#nav>h1)
+<div id="header">
+    <!--lorem2:Lorem, ipsum.-->
+    <!--lorem3:Lorem, ipsum dolor.-->
+    <h1>Lorem, ipsum.</h1>
+    <div id="nav">
+        <h1>Lorem.</h1>
+    </div>
+</div>     
+
+5) 
+폰트사이즈 em는 배
+
+투명도(opasity)는 자식태그에도 영향을 준다
+
+이미지는 style에 백그라운드에서도 사용가능
+<style>
+    body{background-image:url('https~~~~')}
+</style>
+
+===========================================
+3 (20240913)
+
+구글 폰트 (사이트)
+https://fonts.google.com/selection/embed
+눈누
+https://noonnu.cc/
+
+========================
+4 (20240919)
+1) 홈페이지 만들어주는 사이트 - 드림위버, 나모웹에디터
+2) 부트 스트랩 사이트 
+- https://startbootstrap.com/
+- https://www.codeply.com/
+- https://w3layouts.com/
+
+3) ctrl+x 해당 열 잘라내기
+
+4) link 태그는 외부 css 파일을 가져올 때
+script는 자바스크립트 파일
+
+========================
+4 (20240920)
+
+1) (주의) 윤고딕은 대표적인 유료 폰트 
+폰트는 네이버 폰트,. 눈누, 구글폰트 등에서 구할 수 있다
+
+2) 이미지 나눠서 만드는 것
+https://www.toptal.com/developers/css/sprite-generator/
