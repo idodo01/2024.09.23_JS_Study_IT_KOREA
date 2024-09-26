@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name='form1' action="03_JS_Table_Node.html" method="get"> 
+        <!--1. action: 페이지 이동됨, 
+        method="get": 값이 보임, method="post": 값이 안보임-->
+        Data: <input name="data" type="text"><br> <!-- 2. input name 속성이 있어야, 값을 보낼 수 있음-->
+        PW: <input type="password"><br>
+
+        <!-- 3. type="submit" (기본값):값을 보내줌 + form action속성이 없으면 자기자신한테 보냄
+         type=button : 그저 버튼 모양
+         type=reset : 리셋 -->
+
+        <!-- 4. button이 form안에 있어야함 -->
+        <button type="submit">보내기</button> 
+
+        <!--5. input 태그로도, button에 사용된 속성 그대로 사용가능-->
+        <input type="submit"> <!--제출-->
+        <input type="button">
+        <input type="button" value="단순버튼">
+        <input type="reset"> <!--초기화-->
+    </form>
+    <hr>
+    <form name="form2" action="#">
+        <input type="text" value="zz">
+        <select>
+            <!--8. readonly selected: 이미선택됨-->
+            <option readonly selected>통신사</option>
+            <!--9. value를 설정해두면 선택되었을 때 value값을 가져감-->
+            <option value="1">skt</option> 
+            <option>kt</option>
+        </select>
+        <button>버튼</button>
+    </form>
+</body>
+</html>
+<script>
+    document.forms // 폼을 여러개 만들 수 있기에, 한꺼번에 가져오는 
+    
+    // 6. 다 똑같은 코드
+    const form1 = document.forms[0] // 
+    document.forms.item(0); 
+    document.forms.namedItem('form1'); 
+    
+    // 7. setter
+    form1.action = ' ';
+    form1.method = 'post';
+
+    // 10. 버튼눌렀을 때, select값 출력하기
+    const form2 = document.forms.namedItem('form2');
+    const button = form2.querySelector('button'); 
+    button.onclick = () => {
+        const select = form2.querySelector('select');
+        console.log(select.value);
+    }
+
+    // 11. 버튼 name 속성 값 바꾸기
+    button.name = 'button명';
+</script>
