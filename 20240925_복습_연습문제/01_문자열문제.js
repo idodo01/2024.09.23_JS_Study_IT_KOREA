@@ -102,7 +102,7 @@ function removeDuplicateCharacters(str) {
         for (var j of newStr) {
             console.log('newStr에서',j);
             if(i==j) {
-                continue;
+                break;
             }
             newStr+=i;
             console.log('newStr:',newStr);

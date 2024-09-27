@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1. 스프레드 문법(전개 문법)
+    // 뭉쳐있는 것들을 하나로 펼친다
+
+    // 1) Array(배열), String(문자열), Map, Set 등 for-of 사용가능한 애들
+    console.log(...[1,2,3]);
+    console.log(..."hello");
+    // 2) 객체및 변수에는 불가능하다
+    // console.log(...{a:1,b:2}); // 불가능
+    // var myList = ...[1,2,3]; // 변수에 넣는 것도 불가능
+    
+    // 3)
+    // (1) 배열을 풀 때
+    var maxValue = Math.max(4,5,8,2,5);
+    console.log(maxValue);
+
+    var maxValue = Math.max(...[4,5,8,2,5]);
+    console.log(maxValue);
+
+    // (2) 배열을 합칠 때
+    var arr1 = [1,2,3];
+    var arr2 = [4,5,6];
+    console.log(arr1+arr2); // +로 합치면, 1,2,.4,5,6이 됨
+
+    var result = [...arr1,...arr2];
+    console.log(result); // [1, 2, 3, 4, 5, 6]
+
+    // 사실, concat함수를 사용해도됨
+    var result = arr1.concat(arr2);
+    console.log(result); // [1, 2, 3, 4, 5, 6]
+    
+    //////////////////////+ 참조형///////////////////////////
+    var arr = [10];
+    var myArr = arr;
+    console.log(arr, myArr);
+
+    myArr[0] = 100; 
+    console.log(arr, myArr); // 값이 둘 다 바뀌어있음
+    // 배열이기에, 같은 주소를 가리키고 있기 때문
+    
+    // 4) 객체에서 사용하기
+    var obj = {x:1, y:2};
+    var obj2 = { y:10, z:3};
+    var myObj = {...obj}; //객체 내용을 복제하기
+    
+    var myObj = {...obj,...obj2}; // 중복될 경우, 뒤에 있는 객체가 우선을 가짐
+    console.log(myObj);
+    
+    ////////////////////////////////////////////////////
+    // 2. 디스트럭처링
+
+    // 1) 배열에서
+    var arr = [1,2,3];
+    // var v1 = arr[0];
+    // var v1 = arr[1];
+    var [v1, v2, v3] = arr;
+    console.log(v1,v2,v3);
+    var [v4, , v5] = arr; // 중간에 비어져있어도 가능
+    console.log(v4,v5);
+
+    // 기본 값 설정
+    var [a, b, c=3] = [1,2];
+    var [a, b=1, c=3] = [1,2]; // 1 2 3 나옴
+
+    //////////////////////////
+    // 2) 객체에서
+
+    var user = {firstName:'kim', lastName: 'dill'};
+    var {firstName, lastName} = user; //  프로퍼티 명과 동일한 이름의변수
+    
+
+    // 만약 다른 이름으로 변수를 만들고 싶다면
+    var {firstName : fn1, lastName : ln1} = user;
+    console.log(fn1,ln1);
+
+    /////////////////
+    var str = 'Hello';
+
+    // 방법1
+    var len = str.length;
+    console.log(len);
+
+    // 방법2
+    var {length} = str;
+    console.log(length);
+    
+
+    var todo =  {id:1, content:'HTML'};
+    var id = todo.id; // 똑같음
+    var {id} = todo; // 똑같음
+
+    /////////////////
+    // 3) 함수에서
+    // 방법1
+    function printTodo(todoObject) {
+        console.log('할일: ',todoObject.content);
+        
+    }
+    // 방법2
+    function printTodo2({content}) {
+        console.log('할일: ',content);
+        
+    }
+    printTodo(todo);
+    printTodo2(todo);
+
+    ////////////////////////////////
+
+</script>

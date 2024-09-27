@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--3.  스크립트가 여러개일 때,
+            비동기(병행식) 동작 /  원래는 동기(차례대로) 
+    async : (백그라운드)다운로드 되자마자 실행
+    defer : (백그라운드)다운로드되고 대기
+            html dom 트리 다 구축된 후 실행됨
+            + window.addEventListener('DOMContentLoaded', () => {} 안 적어도 됨-->
+    <script src="02_JS_UI이벤트.js" defer></script>
+    </head>
+<body>
+    <img tabindex="2" style="width:100px; height:100;" src="https://images.unsplash.com/photo-1727262436067-6ac6dfc03e27?q=80&w=1354&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <textarea tabindex="3">선택해보세요</textarea>
+    <select tabindex="1">
+        <option>색상선택</option>
+        <option>레드</option>
+        <option>블루</option>
+        <option>오렌지</option>
+    </select>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+<script>
+    // 1. 똑같다
+    // 윈도우의 로드가 모두 되었을 때, 실행된다
+    // window.onload = () => {}
+    // window.addEventListener('load', () => {});
+</script>

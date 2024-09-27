@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: aqua;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <div></div>
+</body>
+</html>
+<script>
+    const input = document.querySelector('input');
+    const div = document.querySelector('div');
+    
+    // 클릭시
+    input.onclick = () => {
+        input.style.backgroundColor = 'black';
+        input.style.color = 'pink';
+    }
+    
+    // 더블클릭시
+    input.ondblclick = () => {
+        input.style.backgroundColor = 'red';
+    }
+
+    // 포커싱되었을 때
+    input.onfocus = () => {
+        input.style.backgroundColor = 'blue';
+    }
+
+    // 다른 곳 클릭
+    input.onblur = () => {
+        input.style.backgroundColor = 'white';
+    }
+
+    ////////////////////////////////////
+    // 마우스가 div안으로 들어왔을 때
+    div.onmouseenter = () => {
+        console.log('마우스 들어옴'); 
+    }
+    // 마우스가 div밖으로 나갔을 때
+    div.onmouseleave = () => {
+        console.log('마우스 나감'); 
+    }
+    // 마우스가 안에서 움직일 때
+    div.onmousemove = () => {
+        console.log('마우스 움직임'); 
+    }
+
+    // 객체내에서 마우스 눌림
+    div.onmousedown = () => {
+        console.log('마우스 눌림'); 
+    }
+    // 객체내에서 마우스 올라옴
+    div.onmouseup = () => {
+        console.log('마우스 올라옴'); 
+    }
+</script>
