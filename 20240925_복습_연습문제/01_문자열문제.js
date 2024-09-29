@@ -96,19 +96,19 @@ console.log('5번문제: ');
 // 5. 문자열에서 중복 문자 제거
 // 문자열에서 중복된 문자를 제거하고 유일한 문자만 남기는 함수를 작성하세요.
 function removeDuplicateCharacters(str) {
-    var newStr = str[0];
-    for (var i of str) {
-        console.log('i:',i);
-        for (var j of newStr) {
-            console.log('newStr에서',j);
-            if(i==j) {
-                break;
-            }
-            newStr+=i;
-            console.log('newStr:',newStr);
+    // var newStr = str[0];
+    // for (var i of str) {
+    //     console.log('i:',i);
+    //     for (var j of newStr) {
+    //         console.log('newStr에서',j);
+    //         if(i==j) {
+    //             break;
+    //         }
+    //         newStr+=i;
+    //         console.log('newStr:',newStr);
             
-        }
-    }
+    //     }
+    // }
     
     // 코드를 작성하세요.
 }
