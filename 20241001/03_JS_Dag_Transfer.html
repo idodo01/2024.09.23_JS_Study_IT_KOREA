@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, section {
+            width: 200px;
+            height: 200px;
+            background-color: azure;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        img {
+            
+            width: 20px;
+            height: 20px;
+        }
+
+        div {
+            background-color: aqua;
+        }
+
+        section {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <section></section>
+
+</body>
+</html>
+<script>
+    const [div, section] = document.body.children;
+    //console.log(children);
+    div.draggable = true; // 드래그 가능해짐
+
+    div.ondragstart = event => {
+        console.log('드래그');
+        console.log(event.dataTransfer);
+
+        // Mime-Type(마임 타입)
+        const transfer = event.dataTransfer;
+        transfer.setData('text/plain','드래그를 통해서, 값을 전할 수 있다');
+    }
+
+    //
+    section.ondragover = event => {
+        event.preventDefault(); // ondrop를 사용하기 위한 절차
+
+    }
+    section.ondrop = event => {
+        const transfer = event.dataTransfer;
+        console.log('값 받았음',transfer.getData('text/plain'));
+
+        section.style.backgroundColor = getComputedStyle(div).backgroundColor;
+    }
+</script>

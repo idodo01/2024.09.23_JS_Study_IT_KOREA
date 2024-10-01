@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name='form' action="#" method="get">
+        <input type="text" placeholder="3글자 이상 입력"> <br>
+        남<input type="radio" name="gender"> <!--name 값이 동일하면, 하나만 선택됨-->
+        녀<input type="radio" name="gender" value="여자"> <br>
+        <input type="submit"> <br>
+    </form>
+
+    <a href="https://www.naver.com">네이버</a>
+</body>
+</html>
+<script>
+    const [form] = document.forms;
+    const [textInput, radioInput1, radioInput2, submitInput] = document.querySelectorAll('input');
+    const aTag = document.querySelector('a');
+
+    // input의 value가 변경되는 실시간
+    textInput.oninput = () => { 
+        
+        console.log('input 이벤트 동작');  
+        if(textInput.value.length < 3) {
+            textInput.style.color = 'red';
+        } else {
+            textInput.style.color = 'black';
+        }
+    }
+    // input의 value가 변경 완료 된 후 (focus를 잃어야함)
+    textInput.onchange = () => { // input 이벤트가 있음
+        console.log('input 이벤트 동작');  
+    }
+
+
+    // 라디오 버튼은 똑같이 동작함, oninput이나 onchange이나
+    radioInput1.oninput = () => {
+        console.log('radioInput1 이벤트 동작', radioInput1.value); // 라디오버튼에 값이 별도로 없으면, 그저 on으로 뜸 
+    }
+
+    radioInput1.onchange = () => {
+        console.log('radioInput1 이벤트 동작', radioInput1.value); 
+    }
+
+    //
+    radioInput2.oninput = () => {
+        console.log('radioInput1 이벤트 동작', radioInput2.value); // 라디오버튼에 값이 별도로 없으면, 그저 on으로 뜸 
+    }
+
+    radioInput2.onchange = () => {
+        console.log('radioInput1 이벤트 동작', radioInput2.value); 
+    }
+
+    //============================ preventDefault() 사용
+    form.onsubmit = event => {
+        alert('submit');
+        console.log('submit');
+        
+        event.preventDefault();
+    }
+
+    // 
+    aTag.onclick = event => {
+        console.log('a태그');
+        
+        event.preventDefault();  // a태그의 이동을 막는다
+    }
+
+</script>

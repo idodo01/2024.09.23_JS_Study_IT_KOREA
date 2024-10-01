@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, section {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        #d1 {
+            background-color: red;
+        }
+        #d2 {
+            background-color: orange;
+        }
+        #d3 {
+            background-color: yellow;
+        }
+        #d4 {
+            background-color: rgb(173, 255, 173);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="d1"></div>
+        <div id="d2"></div>
+    </section>
+    <section>
+        <div id="d3"></div>
+        <div id="d4"></div>
+    </section>
+</body>
+</html>
+<script>
+    const [div1, div2, div3, div4] = document.querySelectorAll('div');
+
+    div1.ondragover = event => {
+        event.preventDefault(); // ondrop를 사용하기 위한 절차
+
+    }
+    div2.ondragover = event => {
+        event.preventDefault(); // ondrop를 사용하기 위한 절차
+
+    }
+    div3.ondragover = event => {
+        event.preventDefault(); // ondrop를 사용하기 위한 절차
+
+    }
+    div4.ondragover = event => {
+        event.preventDefault(); // ondrop를 사용하기 위한 절차
+
+    }
+
+
+    div1.ondragstart = () => {
+            console.log('div1에서 드래그 시작');
+            div1.ondrop = event => {
+                console.log('div1로 드래그 끝');
+                div1.style.backgroundColor = "red";
+            }
+            div2.ondrop = event => {
+                console.log('div2로 드래그 끝');
+                div2.style.backgroundColor = "red";
+            }
+            div3.ondrop = event => {
+                console.log('div3로 드래그 끝');
+                div3.style.backgroundColor = "red";
+            }
+            div4.ondrop = event => {
+                console.log('div4로 드래그 끝');
+                div4.style.backgroundColor = "red";
+            }
+    
+    }
+    div2.ondragstart = () => {
+            console.log('div2에서 드래그 시작');
+            div1.ondrop = event => {
+                console.log('div1로 드래그 끝');
+                div1.style.backgroundColor = "orange";
+            }
+            div2.ondrop = event => {
+                console.log('div2로 드래그 끝');
+                div2.style.backgroundColor = "orange";
+            }
+            div3.ondrop = event => {
+                console.log('div3로 드래그 끝');
+                div3.style.backgroundColor = "orange";
+            }
+            div4.ondrop = event => {
+                console.log('div4로 드래그 끝');
+                div4.style.backgroundColor = "orange";
+            }
+    
+    }
+    div3.ondragstart = () => {
+            console.log('div3에서 드래그 시작');
+            div1.ondrop = event => {
+                console.log('div1로 드래그 끝');
+                div1.style.backgroundColor = "yellow";
+            }
+            div2.ondrop = event => {
+                console.log('div2로 드래그 끝');
+                div2.style.backgroundColor = "yellow";
+            }
+            div3.ondrop = event => {
+                console.log('div3로 드래그 끝');
+                div3.style.backgroundColor = "yellow";
+            }
+            div4.ondrop = event => {
+                console.log('div4로 드래그 끝');
+                div4.style.backgroundColor = "yellow";
+            }
+    
+    }
+    div4.ondragstart = () => {
+            console.log('div4에서 드래그 시작');
+            div1.ondrop = event => {
+                console.log('div1로 드래그 끝');
+                div1.style.backgroundColor = "rgb(173, 255, 173)";
+            }
+            div2.ondrop = event => {
+                console.log('div2로 드래그 끝');
+                div2.style.backgroundColor = "rgb(173, 255, 173)";
+            }
+            div3.ondrop = event => {
+                console.log('div3로 드래그 끝');
+                div3.style.backgroundColor = "rgb(173, 255, 173)";
+            }
+            div4.ondrop = event => {
+                console.log('div4로 드래그 끝');
+                div4.style.backgroundColor = "rgb(173, 255, 173)";
+            }
+    
+    }
+
+    
+</script>

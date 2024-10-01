@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, section {
+            width: 200px;
+            height: 200px;
+            background-color: azure;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        img {
+            
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <a href="#">a태그</a>
+    <img src="https://picsum.photos/id/684/600/400" alt="이미지">
+    <div></div>
+    <section></section>
+
+
+</body>
+</html>
+<script>
+    const div = document.querySelector('div');
+    const aTag = document.querySelector('a');
+    const sectionTag = document.querySelector('section');
+
+    // 2. draggable 속성값이 true인 것만, 드래그가 가능함
+    console.log(aTag.draggable); // true
+
+    console.log(div.draggable); // true
+
+    // false로 바꾸면, 드래그 못함
+    aTag.draggable = false;
+
+
+    // 1. 드래그 시작 / 드래그 중/ 드래그 끝
+    div.ondragstart = () => {
+        console.log('div에서 드래그 시작');
+        
+    }
+    // div.ondrag = () => { // 드래그 중일 때
+    //     console.log('div에서 드래그 끝');
+    // }
+    div.ondragend = () => {
+        console.log('div에서 드래그 끝');
+        
+    }
+
+    // 3. 드래그 요소가 감지될 때
+    sectionTag.ondragenter = () => {
+        console.log('section에 드래그가 요소가 들어왔어요');
+    }
+    sectionTag.ondragover = event => {
+        //console.log('section에 드래그가 요소가 들어가 있어요');
+        // 4.1
+        event.preventDefault();
+
+    }
+    sectionTag.ondragleave = () => {
+        console.log('section에 드래그가 요소가 나갔어요');
+    }
+
+    // 4.ondrop이 실행되려면, ondragover에서 기본 동작을 취소해야함
+    sectionTag.ondrop = () => {
+        console.log('드래그 중에 section에 마우스 놓았어요');
+    }
+
+</script>
