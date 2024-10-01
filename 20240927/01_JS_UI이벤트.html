@@ -6,11 +6,13 @@
     <title>Document</title>
     <!--3.  스크립트가 여러개일 때,
             비동기(병행식) 동작 /  원래는 동기(차례대로) 
-    async : (백그라운드)다운로드 되자마자 실행
-    defer : (백그라운드)다운로드되고 대기
+
+    1) async : (백그라운드)다운로드 되자마자 실행
+
+    2) defer : (백그라운드)다운로드되고 대기,
             html dom 트리 다 구축된 후 실행됨
             + window.addEventListener('DOMContentLoaded', () => {} 안 적어도 됨-->
-    <script src="02_JS_UI이벤트.js" defer></script>
+    <script src="01_JS_UI이벤트.js" defer></script>
     </head>
 <body>
     <img tabindex="2" style="width:100px; height:100;" src="https://images.unsplash.com/photo-1727262436067-6ac6dfc03e27?q=80&w=1354&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
