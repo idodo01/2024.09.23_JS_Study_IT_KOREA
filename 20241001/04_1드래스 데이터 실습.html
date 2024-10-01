@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, section {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        #d1 {
+            background-color: red;
+        }
+        #d2 {
+            background-color: orange;
+        }
+        #d3 {
+            background-color: yellow;
+        }
+        #d4 {
+            background-color: rgb(173, 255, 173);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="d1"></div>
+        <div id="d2"></div>
+    </section>
+    <section>
+        <div id="d3"></div>
+        <div id="d4"></div>
+    </section>
+</body>
+</html>
+<script>
+    const divs = document.querySelectorAll('div');
+    let dragElement = null;
+    //const colorList = ['red', 'orange', 'yellow', 'rgb(173, 255, 173)']; // 방법1
+    const colorList = {'d1':'red', 'd2':'orange', 'd3':'yellow', 'd4':'rgb(173, 255, 173)'}; // 방법2
+
+    for (let index = 0; index < divs.length; index++) {
+        divs[index].draggable = true;
+
+        divs[index].ondragstart = () => {
+            dragElement = divs[index]; // 어떤 값이 드래그되었는가
+            console.log(dragElement);
+            
+        }
+
+        divs[index].ondragover = event => {
+            event.preventDefault();
+        }
+
+        // divs[index].ondrop = () => {
+            // if(dragElement.id == 'd1') {     // 방법1
+            //     divs[index].style.backgroundColor =  colorList[0];
+            // } else if(dragElement.id == 'd2') {
+            //     divs[index].style.backgroundColor =  colorList[1];
+            // } else if(dragElement.id == 'd3') {
+            //     divs[index].style.backgroundColor =  colorList[2];
+            // } else {
+            //     divs[index].style.backgroundColor =  colorList[3];
+            // }
+            
+        // }   
+        divs[index].ondrop = event => {         // 방법2
+            divs[index].style.backgroundColor =  colorList[dragElement.id];
+        }
+
+
+    }
+    
+    
+</script>
