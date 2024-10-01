@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: azure;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div></div>
+</body>
+</html>
+<script>
+    // 드래그 대상 박스
+    const div = document.querySelector('div');
+    // 맨 처음 박스에 클릭한 위치를 저장해주는 객체
+    const initPosition = { x: 0, y: 0 };
+    // 이동을 한번이라도 했다면 이동한 위치를 저장해주는 객체
+    const movePosition = { x: 0, y: 0};
+
+    // 마우스 누른 후에 마우스 움직일 때마다 실행되는 함수
+    function move(event){
+        // 현재 마우스의 위치 - 맨처음 클릭했던 초기위치
+        var x = event.clientX - initPosition.x;
+        var y = event.clientY - initPosition.y;
+        // 처음 위치에서 이만큼 이동 했다고 저장해둔다
+        movePosition.x = x;
+        movePosition.y = y;
+        div.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // 마우스가 눌리면
+    div.onmousedown = event => {
+        // 클릭한 위치의 좌표를 원래 박스 위치로 설정함
+        // 근데 한번이라도 이동한 적이 있다면 이동했던 거리도 생각해서 설정해야 함
+        initPosition.x = event.clientX - movePosition.x;
+        initPosition.y = event.clientY - movePosition.y; 
+
+        div.addEventListener('mousemove', move);
+        // div.onmousemove = move; 만약 이런식으로 설정했으면 취소할 때는 null 넣어요
+    }
+
+    // 마우스 위치가 어디든 간에 (문서 어디든) 마우스를 떼면 이동 그만해
+    document.addEventListener('mouseup', () => {
+        // div에 걸려 있는 mousemove 이벤트 중에, move 동작을 취소하겠습니다.
+        // removeEventListener(이벤트명, 함수명)
+        div.removeEventListener('mousemove', move);
+        // div.onmousemove = null;
+    });
+
+
+
+
+</script>

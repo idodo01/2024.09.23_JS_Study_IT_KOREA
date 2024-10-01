@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    section{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        border: 1px solid black;
+    }
+    div{
+        width: 50px;
+        height: 50px;
+        background-color: beige;
+        border: 1px solid black;
+    }
+    div:first-child{
+        transform: translateX(220px);
+        background-color: yellowgreen;
+        
+    }
+</style>
+<body>
+    <section>
+        PARENT
+        <div>CHILD1</div>
+        <div>CHILD2</div>
+    </section>
+</body>
+</html>
+<script>
+    const parent = document.querySelector('section');
+    const [child1, child2] = document.querySelectorAll('div');
+
+    // 부모 요소의 addEventListener에 넣어줌
+    parent.addEventListener('click', event => {
+        console.log('PARENT 클릭되었음');
+        console.log(event.target);
+        console.log(event.currentTarget);
+        
+    }, false);
+    child1.addEventListener('click', event => {
+        console.log('CHILD1 클릭되었음 111');
+        // 부모로 bubbling 되는 이벤트 전파를 막음
+        event.stopPropagation();
+        // +아래의 click 이벤트까지 실행이 안되도록 함
+        event.stopImmediatePropagation();
+    });
+    child1.addEventListener('click', event => {
+        console.log('CHILD1 클릭되었음 2222');
+    });
+
+
+
+
+
+</script>
+
+
+

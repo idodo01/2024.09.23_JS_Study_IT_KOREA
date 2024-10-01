@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <div>
+        <b>입력한 키 => </b><span></span>
+    </div>
+</body>
+</html>
+<script>
+    const input = document.querySelector('input');
+    const span = document.querySelector('span');
+    
+    input.onkeydown = event => {
+        // span.textContent = event.code;
+        //span.textContent = input.value;
+    }
+
+    input.onkeyup = event => {
+        //span.textContent = input.value;
+    }
+
+    input.onkeypress = event => {
+        span.textContent = input.value;
+    }
+
+</script>
