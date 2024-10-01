@@ -98,7 +98,6 @@ function sumByKey(arr, key) {
     
     for (const arrKey in arr) {
         sum += +arr[arrKey][key];
-        
     }
     return sum;
 }

@@ -50,7 +50,13 @@ console.log('3번문제: ');
 // 문자열을 공백을 기준으로 분리한 후, 각 단어의 첫 글자를 대문자로 변환한 문자열을 반환하는 함수를 작성하세요.
 function capitalizeWords(str) {
     var result = str.split('');
-    return result[0].toUpperCase();
+    var newStr = '';
+    newStr = result[0].toUpperCase();
+    for (let index = 1; index < result.length; index++) {
+        newStr += result[index];
+    }
+
+    return newStr;
 }
 console.log(capitalizeWords("hello world")); // "Hello World"
 
@@ -95,22 +101,16 @@ console.log(compressString("aaabbc")); // "a3b2c1"
 console.log('5번문제: ');
 // 5. 문자열에서 중복 문자 제거
 // 문자열에서 중복된 문자를 제거하고 유일한 문자만 남기는 함수를 작성하세요.
-function removeDuplicateCharacters(str) {
-    // var newStr = str[0];
-    // for (var i of str) {
-    //     console.log('i:',i);
-    //     for (var j of newStr) {
-    //         console.log('newStr에서',j);
-    //         if(i==j) {
-    //             break;
-    //         }
-    //         newStr+=i;
-    //         console.log('newStr:',newStr);
-            
-    //     }
-    // }
-    
-    // 코드를 작성하세요.
+function removeDuplicateCharacters(str) {       // 안됨
+    let result = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    if (result.indexOf(str[i]) === -1) {
+      result += str[i];
+    }
+  }
+
+  return result;
+
 }
-removeDuplicateCharacters("mississippi")
-// console.log(removeDuplicateCharacters("mississippi")); // "misp"
+console.log(removeDuplicateCharacters("mississippi")); // "misp"
