@@ -101,7 +101,7 @@ console.log(compressString("aaabbc")); // "a3b2c1"
 console.log('5번문제: ');
 // 5. 문자열에서 중복 문자 제거
 // 문자열에서 중복된 문자를 제거하고 유일한 문자만 남기는 함수를 작성하세요.
-function removeDuplicateCharacters(str) {       // 안됨
+function removeDuplicateCharacters(str) {       // 쳇으로 정답 찾음
     let result = '';
   
   for (let i = 0; i < str.length; i++) {

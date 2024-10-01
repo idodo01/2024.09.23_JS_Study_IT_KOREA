@@ -11,20 +11,21 @@ console.log('2번============= ');
 console.log(findMin([10, 5, 20, 8])); // 5
 
 // 2. 배열에서 특정 값 제거하기
-// 주어진 배열에서 특정 값을 제거하는 함수를 작성하세요.
+// 주어진 배열에서 특정 값을 제거하는 함수를 작성하세요.              // 다시 코드 봐야함
 function removeValue(arr, value) {
     // 코드를 작성하세요.
-    //arr.pop(value)
-
-    var result = arr.filter(remove);  // true반환된 요소만 배열에 들어감
     
-    function remove(num) {
-        if(num!=value) {
-            return true;  
-        }
+    var index = arr.indexOf(value);  
+    console.log(index);
+
+    for (index = 0; index < arr.length; index++) {
+      arr = arr.slice(index,1);
+      console.log(arr);
+      index = arr.indexOf(value);
+      
     }
 
-    return result;
+    
 }
 console.log(removeValue([1, 2, 3, 4, 2], 2)); // [1, 3, 4]
 
@@ -35,13 +36,13 @@ console.log('3번============= ');
 function sumRows(matrix) {
     // 코드를 작성하세요.
 
-    var sum = [];
+    var arr = [];
 
-    for (const key in matrix) {
-        sum.push(matrix[key][0]+matrix[key][1]);
-
+    for (let index = 0; index < matrix.length; index++) {
+      const sum = matrix[index].reduce((prev,curt) => prev + curt)
+      arr.push(sum);
     }
-    return sum;
+    return arr;
 }
 console.log(sumRows([[1, 2], [3, 4], [5, 6]])); // [3, 7, 11]
 
@@ -49,7 +50,7 @@ console.log(sumRows([[1, 2], [3, 4], [5, 6]])); // [3, 7, 11]
 console.log('4번============= ');
 // 4. 배열에서 중복된 요소 찾기
 // 주어진 배열에서 중복된 요소들을 찾아 반환하는 함수를 작성하세요.
-function findDuplicates(arr) {                                  // 안됨
+function findDuplicates(arr) {                                 // 쳇으로 정답 찾음
     // 코드를 작성하세요.
     let duplicates = [];
 
