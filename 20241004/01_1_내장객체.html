@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        지역시 <input type="radio" name="local" checked>
+        세계시 <input type="radio" name="grobal">
+    </section>
+    <section id="date-section">
+        <span></span>년
+        <span></span>월
+        <span></span>일
+    </section>
+    <section id="time-section">
+        <span></span>시
+        <span></span>분
+        <span></span>초
+    </section>
+</body>
+</html>
+<script>
+    // new로 생성하는 내장 객체
+
+    // 1. 객체를 리터럴로 정의 + 생성
+    var obj1 = {a:1, b:10, c: function(){}};
+    var obj2 = obj1;
+
+    // obj2의 값을 바꾸는데
+    obj2.a = 100;
+    // obj의 값이 바뀌는 이유는, 객체가 참조형이기 때문에
+    console.log(obj);
+    //
+    obj2.c();
+
+    // 2. 객체를 함수로 정의
+    function f_obj() { // this 를 사용해야한다
+        this.a = 10;    // = objj.a와 같다
+        this.b = 100
+        this.c = function(){}
+    }
+    // 함수로 정의된 객체를 실제로 사용하기 위해서는
+    // new 키워드를 사용하여 생성해야한다
+
+    // new를 사용하지 않으면, 함수로 실행되어버린다
+    var objj = new f_obj();
+
+    // 3. class로 객체 정의
+    class C_obj {
+        constructor() { // 생성자
+            this.a = 10;
+            this.b = 20;
+        }
+        c() {} // 메서드 생성 방법
+    }
+    // new 키워드 안쓰면 무조건 오류
+    // class는 무조건 객체로만 동작함
+    var obj = new C_obj();
+
+    // ==============================================================
+    var s = 'ABC'
+    var s = new String('ABC'); // 스트링 객체로 만들기
+    console.log(s);
+
+    // 객체 생성시, 리터럴 형식이 아니면
+    // new 사용해서 객체 생성함
+    var now = new Date();
+    //console.log(now);
+    var year = now.getFullYear;
+    var hour = now.getHours;
+    var hourUTC = now.getUTCHours; // 협정 세계시(UTC)
+
+    // 시간 설정
+    now.setMinutes(10); // 10분으로 고정
+    now.setMinutes(now.getMinutes()-10) // 현재보다 10분 전
+    console.log(now);
+
+    // 
+    console.log(now.toString()); // Fri Oct 04 2024 19:00:43 GMT+0900 (한국 표준시)
+    console.log(now.toTimeString()); // 19:00:43 GMT+0900 (한국 표준시)
+    console.log(now.toDateString()); // Fri Oct 04 2024
+    console.log(now.toLocaleString()); // 2024. 10. 4. 오후 7:00:43
+    console.log(now.toLocaleDateString()); 
+    console.log(now.toLocaleTimeString()); // 7:00:43
+    console.log(now.toISOString()); // 제일 자주 사용됨 오후 
+    console.log(now.toUTCString()); // 세계시
+
+
+    // ======================================
+    const [local, global] = document.getElementsByTagName('input');
+    const [yearSpan, monthSpan, daySpan] = document.getElementById('date-section').getElementsByTagName('span');
+    const [hourSpan, minSpan, secSpan] = document.getElementById('time-section').getElementsByTagName('span');
+
+    console.log(yearSpan);
+
+    local.onclick = set_local_datetime;
+    global.onclick = set_global_datetime;
+
+
+    function set_2length(number) {
+        return number < 10 ? '0'+ number : number
+    }
+    
+
+    function set_local_datetime() {
+        const date = new Date();
+        yearSpan.textContent = set_2length(date.getFullYear());
+        monthSpan.textContent = set_2length(date.getMonth() + 1);
+        daySpan.textContent = set_2length(date.getDate());
+        hourSpan.textContent = set_2length(date.getHours());
+        minSpan.textContent = set_2length(date.getMinutes());
+        secSpan.textContent = set_2length(date.getSeconds());
+        console.log('로컬 클릭됨');
+    }
+
+    function set_global_datetime() {
+        const date = new Date();
+        yearSpan.textContent = set_2length(date.getFullYear());
+        monthSpan.textContent = set_2length(date.getUTCMonth() + 1);
+        daySpan.textContent = set_2length(date.getUTCDate());
+        hourSpan.textContent = set_2length(date.getUTCHours());
+        minSpan.textContent = set_2length(date.getUTCMinutes());
+        secSpan.textContent = set_2length(date.getUTCSeconds());
+        console.log('글로벌 클릭됨');
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+</script>

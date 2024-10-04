@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // setTimeout(함수, ms) : 전달된 함수를 전달된 초 이후에 한번 실행
+    // setInterval(함수, ms) : 전달된 함수를 전달된 초 이후 마다 실행
+
+
+    // 1. setTimeout
+    setTimeout(my_to,2000); // my_to 함수를 2초 뒤에 실행하라
+
+    function my_to() {
+        console.log('my_to ^-^');
+    }
+
+    // 2. setInterval
+
+    // 1)
+    setInterval(my_to,1000) // my_to 함수를 1초마다 실행함
+    
+    const intervalId = setInterval(() => {
+        console.log('1초마다 실행하는 함수~');
+    }, 1000);
+
+    // 2) 리터벌을 추가할 때마다, id가 +1
+    const intervalId1 = setInterval(() => {
+        console.log('111111');
+    }, 1000);
+    console.log(intervalId1);
+    const intervalId2 = setInterval(() => {
+        console.log('2222');
+    }, 1000);
+    console.log(intervalId2)
+    
+
+    // 3) 3번만 작동하고 멈추기
+    const three_set = setInterval( () => {
+        console.log('3번 작동하고 멈출까?');
+    }, 1000);
+
+    setInterval(()=> {
+        clearInterval(three_set);
+    }, 3000)
+
+
+    // 3. setTimeout에서 매개변수 함수를 사용하는 법
+    // setTimeout(func2('홍길동', 10),1000) // 의도와 다르게 작동됨, 함수 먼저실행되어버림
+    // 방법1
+    setTimeout(func2, 1000, '홍길동','10')
+
+    // 방법2
+    setTimeout(()=> {
+        func2('홍길동', 10);
+    }, 1000)
+
+    function func2(name, age) {
+        console.log(`이름: ${name}/ 나이:${age}`);
+    }
+
+
+    // 
+    function f1() {
+        console.log('f1');
+        setTimeout(f2,1000);
+    }
+    function f2() {
+        console.log('f2');
+        setTimeout(f3,1000);
+    }
+    function f3() {
+        console.log('f3');
+    }
+    setTimeout(f1,1000);
+
+</script>

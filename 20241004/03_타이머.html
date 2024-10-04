@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>타이머</h1>
+    <section>
+        <button>시작(재시작)</button>
+        <button>일시정지</button>
+        <button>초기화</button>
+    </section>
+    <section>
+        <b id="hour">00</b>
+        <b>:</b>
+        <b id="min">00</b>
+        <b>:</b>
+        <b id="sec">00</b>
+    </section>
+</body>
+</html>
+<script>
+    const [startBt, stopBt, resetBt] = document.getElementsByTagName('button');
+    const timeTx = document.getElementById('sec');
+
+    let hour = 0;
+    let min = 0;
+    let sec = 0
+
+    function secTime() {
+        
+    }
+
+    startBt.onclick = () => {
+
+        setInterval(()=> {
+            timeTx.textContent += sec;
+        },1000);
+        
+    };
+
+    stopBt.onclick = () => {
+
+    }
+
+    resetBt.onclick = () => {
+    }
+
+        
+    
+</script>
