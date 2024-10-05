@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>타이머</h1>
+    <section>
+        <button>시작(재시작)</button>
+        <button>일시정지</button>
+        <button>초기화</button>
+    </section>
+    <section>
+        <b id="hour">00</b>
+        <b>:</b>
+        <b id="min">00</b>
+        <b>:</b>
+        <b id="sec">00</b>
+    </section>
+</body>
+</html>
+<script>
+    const [startBt, stopBt, resetBt] = document.getElementsByTagName('button');
+    const secTx = document.getElementById('sec');
+    const minTx = document.getElementById('min');
+    const hourTx = document.getElementById('hour');
+
+    let hour = 0;
+    let min = 59;
+    let sec = 58;
+
+    let timeInter;
+
+    function set_2length(number) {
+        return number < 10 ? '0'+ number : number
+    }
+
+    function timeFunction() {
+        timeInter = setInterval(()=> {
+        console.log(hour,min,sec);
+        if(set_2length(sec)>59) { // sec가 59초가 넘으면
+            sec = 0; // 초 초기화
+            min++;
+            if(set_2length(min)>59) { // min가 59분이 넘으면
+                min = 0; // 분 초기화
+                hourTx.textContent = set_2length(hour++);
+            }
+            hourTx.textContent = set_2length(hour);
+            minTx.textContent = set_2length(min); // +1분
+            secTx.textContent = set_2length(sec++);
+        } else {
+            hourTx.textContent = set_2length(hour); // 그저 출력
+            minTx.textContent = set_2length(min);
+            secTx.textContent = set_2length(sec++);
+        }
+            
+    },1000);
+    }
+   
+
+
+
+
+    startBt.onclick = () => {
+
+        timeFunction();
+        console.log('시작됨');
+        
+    };
+
+    stopBt.onclick = () => {
+        console.log("멈춤");
+        clearInterval(timeInter);
+    }
+
+    resetBt.onclick = () => {
+        console.log('리셋');
+        hourTx.textContent = '00';
+        minTx.textContent = '00';
+        secTx.textContent = '00';
+    }
+
+        
+    
+</script>
