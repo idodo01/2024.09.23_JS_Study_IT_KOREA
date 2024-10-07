@@ -81,4 +81,15 @@
     }
     setTimeout(f1,1000);
 
+    // 즉시함수로 바로 바꿀 수 있음
+    setTimeout(() => {
+        console.log('f1');
+        setTimeout(() => {
+            console.log('f2');
+            setTimeout(() => {
+                console.log('f3');
+            },1000);
+        },1000);
+    },1000);
+
 </script>
