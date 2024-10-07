@@ -72,6 +72,7 @@
 
     resetBt.onclick = () => {
         console.log('리셋');
+        clearInterval(timeInter);
         hourTx.textContent = '00';
         minTx.textContent = '00';
         secTx.textContent = '00';
