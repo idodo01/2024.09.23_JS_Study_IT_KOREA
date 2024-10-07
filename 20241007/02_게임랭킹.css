@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*********************************/
+table{
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td{
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+/**********************************/
+.modal-container{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 99;
+}
+.modal-container[active]{
+    display: block;
+}
+
+
+
+
+.game-over-modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 400px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 0 20px 0 black;
+    background-color: white;
+    padding: 20px;
+}
+.game-over-modal > h1{
+    margin-bottom: 10px;
+    color: black;
+}
+.game-over-modal > h3{
+    font-size: 30px;
+    margin: 20px 0;
+    font-style: italic;
+    color: brown;
+}
+.game-over-modal > div{
+    display: flex;
+    align-items: center;
+}
+.game-over-modal label{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.game-over-modal input{
+    flex: 1;
+    padding: 2px 5px;
+    align-self: stretch;
+}
+.game-over-modal b{
+    margin-right: 10px;
+}
+.game-over-modal button{
+    margin-left: 10px;
+    padding: 4px 10px;
+    border: none;
+    background-color: khaki;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover{
+        opacity: 0.8;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // f12 -> (상단) application -> (좌측) storage - local storage에서 확인가능
+
+        window.localStorage;
+
+        // 1. setItem(키, 값)
+        localStorage.setItem('DATA','hello')
+
+        // 2. getItem(키)
+        const message = localStorage.getItem('DATA');
+        console.log(message);
+
+        // + 키 값을 모르면, 순번으로 가져올 수 있음
+        const message2 = localStorage.key(0);
+        console.log(message);
+
+        // 3. length
+        console.log(localStorage.length);
+</script>
