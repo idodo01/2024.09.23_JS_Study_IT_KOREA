@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const obj = {
+        a: 1,
+        b: "str",
+        c: [1,2,3],
+        d: {'A': 1, 'B': 2},
+        e: true
+    };
+
+    // 1. 객체
+    console.log(obj);
+    console.log(obj.toString()); // 사용할 의미가 없음 [object Object]
+
+    // 2. JSON 형태의 문자열로 출력하기
+    var jsonObject = JSON.stringify(obj); // 변경 결과는 문자열
+    console.log(jsonObject); //JSON은 모두 큰 따옴표
+
+    // 3. JSON 형태를 다시 javaScript의 객체로 변경하기
+    var jsObject = JSON.parse(jsonObject);
+    console.log('jsObject',jsObject);
+
+    //========================================
+    // 4. 객체 프로퍼티 중 원하는 프로퍼티들만 가져오기
+    var jsonObject = JSON.stringify(obj, ['a','b']);
+    console.log(`['a','b']:`,jsonObject);
+
+
+    var jsonObject = JSON.stringify(obj, replacer);
+    console.log(`문자열) replacer:`,jsonObject);
+
+    function replacer(key, value) {
+        if(value < 100) {
+            return value*10;
+        }
+        return value;
+    }
+
+    // 5. 다시 객체로 변경
+    var jsObject = JSON.parse(jsonObject, reviver);
+    console.log(`객체) parse:`,jsObject);
+
+    function reviver(key,value) {
+        if(key==='now') {
+            return new Date();
+        }
+
+        return value;
+    }
+
+
+</script>

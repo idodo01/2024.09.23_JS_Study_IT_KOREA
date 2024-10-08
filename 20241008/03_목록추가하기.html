@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>순번</td>
+                <td width="200">제목</td>
+                <td>닉네임</td>
+                <td>삭제</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <section>
+        <label>제목<input type="text"></label>
+        <label>닉네임<input type="text"></label>
+        <input type="button" value="추가">
+
+    </section>
+</body>
+</html>
+<script>
+    const [titleInput, nicknameInput,confirmInput] = document.getElementsByTagName('input');
+    const tbody = document.querySelector('tbody')
+    // document.getElementsByTagName('tbody') 하면, 
+    // 밑에서 insertAdjacentHTML를 사용할 수 없다
+    
+    // <log 결과가 다르다> //console.log(tbody); 
+    // 1. querySelector('tbody')
+    // : <tbody></tbody>
+    // 2. getElementsByTagName
+    // HTMLCollection [tbody]
+    
+    let no = 1; 
+
+    confirmInput.onclick = () => {
+
+        const title= titleInput.value;
+        const nickname = nicknameInput.value;
+
+        // 둘 중 하나라도 작성하지 않았다
+        if(title.trim() === '' || nickname.trim() === '') {
+            alert('작성해라!');
+            return;
+        }
+
+        // 둘다 잘 작성했다면, 작성한 내용을 지운다
+        titleInput.value = '';
+        nicknameInput.value= '';
+
+        // 랭킹
+        tbody.insertAdjacentHTML('beforeend',
+            `<tr>
+                <td>${no++}</td>
+                <td>${title}</td>
+                <td>${nickname}</td>
+                <td><button type="button">삭제</button></td>
+            </tr>`
+        );
+
+        const buttons = tbody.getElementsByTagName('button');
+        console.log(buttons);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = () => {
+                //방법1 
+                document.getElementsByTagName('tr')[i+1].remove();
+                //방법2
+                // buttons[i].parentElement.parentElement.remove();
+                
+                // 랭킹 재설정
+                reset_number()
+            }
+            
+        }
+    }
+
+    // 랭킹 재설정 함수
+    function reset_number() {
+        const trs = tbody.querySelectorAll('tr');
+
+        // // 방법1
+        for (let i = 0; i < trs.length; i++) {
+            trs[i].querySelector('td').textContent = i+1;
+            
+        }
+
+        // 방법2
+        // tbody.querySelectorAll('tr').forEach((tr,index) => {
+        //     tr.querySelector('td').textContent = index+1;
+        // })
+    }
+    
+
+
+
+</script>

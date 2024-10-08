@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // var person1 = {'name':'홍길동', 'addr':'대구', 'age':50};
+    // var person2 = {'name':'김하다', 'addr':'서울', 'age':30};
+
+    // localStorage.setItem('person1',person1); // 1. 객체 통채로 저장하고 싶었는데, [Object]로 떠버림
+    
+    // // // 2 해결 : 문자열 저장 -> 꺼내와서 -> 객체로 변환
+
+    // 1) 문자열 저장
+    // var p1JSON = JSON.stringify(person1);
+    // var p2JSON = JSON.stringify(person2);
+
+    // localStorage.setItem('p1JSON',p1JSON);
+    // localStorage.setItem('p2JSON',p2JSON);
+
+    // ================== JSON 형태의 문자열.. 사용하기 힘들다
+    //=================== 다시 객체로 변경해서 사용하자!
+
+    // 2) 저장된 것 꺼내오기
+    var person = localStorage.getItem('p1JSON');
+    console.log(person); 
+
+    // 3) 객체화
+    var personObj = JSON.parse(person);
+    console.log('객체화',personObj); 
+
+    console.log(personObj.name);
+    console.log(personObj.age);
+    console.log(personObj.addr);
+
+
+</script>

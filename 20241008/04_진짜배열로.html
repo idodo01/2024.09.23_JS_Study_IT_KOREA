@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+</body>
+</html>
+<script>
+    // 배열 객체
+    var arr = new Array(3);
+
+    // 유사 배열
+    const spanElms = document.getElementsByTagName('span');
+    const spanNodes = document.querySelectorAll('span'); // 이게 왜 안나올까
+
+    console.log(spanElms[0]);
+    console.log(spanNodes.item(0));
+
+    // 유사 배열을 실제 배열로 만들기 (자주 쓰이는 것은 아님)
+    const spanElmsArr = Array.from(spanElms);
+    spanElmsArr.push(0);
+    console.log(spanElmsArr);
+
+    //
+    const newSpans = [...spanElms];
+    newSpans.push(1);
+    
+
+</script>
