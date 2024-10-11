@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="03_T_way_3.css">
+    <script src="03_T_way_3.js" defer></script>
+</head>
+<body>
+    <label id="city-input-container">
+        <input id="city-input" type="text" placeholder="도시/공항" readonly>
+        <button id="location-btn"><i class="bi bi-signpost-fill"></i></button>
+
+        <section id="city-list-container">
+            <div id="city-search-container">
+                <label>
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="출발지를 입력해주세요">
+                </label>
+            </div>
+
+            <section id="country-city-list-container">
+                <div id="country-container">
+                    <ul>
+                        <li>
+                            <span>대한민국</span>
+                            <i class="bi bi-arrow-right-short"></i>
+                        </li>
+                        <li>
+                            <span>일본</span>
+                            <i class="bi bi-arrow-right-short"></i>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div id="city-container">
+                    <ul active>
+                        <li>
+                            <div>
+                                <span>서울/인천</span>
+                                <span>ICN</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>서울/김포</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>서울/김포</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>서울/김포</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>서울/김포</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>서울/김포</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            <div>
+                                <span>가고시마</span>
+                                <span>ICN</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>구마모토</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>도쿄/나리타</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                        <li>
+                            <div>
+                                <span>도쿄/하네다</span>
+                                <span>GMP</span>
+                            </div>
+                            <i class="bi bi-star"></i>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            
+
+        </section>
+    </label>
+</body>
+</html>
+<script>
+    const cityInput = document.getElementById('city-input');
+    const cityListContainer = document.getElementById('city-list-container');
+
+    const contryContainer = document.getElementById('country-container');
+    const contryContainerLies = contryContainer.getElementsByTagName('li');
+
+    const cityContainer = document.getElementById('city-container');
+    const cityContainerUls = cityContainer.getElementsByTagName('ul')
+
+    const cityContainerLies = cityContainer.getElementsByTagName('li');
+
+
+    for (let i = 0; i < contryContainerLies.length; i++) {
+        contryContainerLies[i].addEventListener('click', event => {
+            if(i==0) {
+                console.log('1. 대한민국 클릭');
+            } else {
+                console.log('2. 일본 클릭');
+            }
+            // 모든 ul을 일단 안보이게 변경한다
+            for (let j = 0; j < cityContainerUls.length; j++) {
+                cityContainerUls[j].removeAttribute('active');
+                console.log(j,cityContainerUls[j]);
+            }
+            cityContainerUls[i].setAttribute('active','');
+        }, true);
+        
+    }
+
+    for (let i = 0; i < cityContainerLies.length; i++) {
+
+        cityContainerLies[i].onclick = () => {
+            const text = cityContainerLies[i].querySelector('div').innerText;
+            cityInput.value = text;
+            // // 선택이 끝나면, 나라/도시 선택 창를 지운다 - 안되는 상태
+            // cityListContainer.removeAttribute('active');
+        }
+        
+    }
+
+    // body부분을 누르면,   나라/도시 선택 창 없어진다
+    document.body.onclick = () => {
+        cityListContainer.removeAttribute('active');
+    }
+
+    
+    // 출발지 클릭시, 나라/도시 선택 창 생긴다
+    cityInput.onclick = event => {
+        console.log('출발지 클릭됨');
+        event.stopPropagation();
+        cityListContainer.setAttribute('active','');
+        
+    }
+
+</script>

@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#city-input-container{
+    display: flex;
+    width: 200px;
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+}
+
+#city-input-container > input{
+    flex: 1;
+    padding: 2px 5px;
+    border: unset;
+    border-bottom: 1px solid black;
+    outline: unset;
+}
+#location-btn{
+    position: absolute;
+    background-color: unset;
+    border: unset;
+    color: red;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+}
+
+/**********************************************/
+#city-list-container{
+    display: none;
+    position: absolute;
+    width: 400px;
+    padding: 10px;
+    bottom: -300px;
+    background-color: white;
+    border: 1px solid black;
+    &[active] {
+        display: block;
+    }
+}
+#city-search-container{
+    /* background-color: aqua; */
+}
+#city-search-container > label{
+    display: flex;
+    padding: 2px 4px;
+    border-bottom: 2px solid rgba(255,0,0,0.7);
+}
+#city-search-container i{
+    margin-right: 5px;
+}
+#city-search-container input{
+    flex: 1;
+    border: unset;
+    outline: unset;
+}
+/******************************************************/
+#country-city-list-container{
+    display: flex;
+    margin-top: 10px;
+}
+#country-city-list-container ul{
+    list-style: none;
+}
+#country-city-list-container li{
+    display: flex;
+    padding: 5px 10px;
+    justify-content: space-between;
+    cursor: pointer;
+    &:hover{
+        background-color: white;
+    }
+    &:hover span:first-child{
+        font-weight: bold;
+        color: red;
+    }
+}
+
+#country-city-list-container > div:first-child{
+    flex: 1;
+    margin-right: 10px;
+    background-color: gainsboro;
+}
+#country-city-list-container > div:last-child{
+    flex: 2;
+    background-color: white;
+}
+/********************************************/
+#country-container li:hover{
+    background-color: white;
+}
+
+#city-container ul {
+    display: none;
+    &[active] {
+        display: block;
+    }
+}
