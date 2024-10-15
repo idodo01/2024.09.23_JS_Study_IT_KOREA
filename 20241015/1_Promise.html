@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+// 1. try가 오류를 잡는다
+   setTimeout(() => {
+       console.log('timeout1');
+       setTimeout(() => {
+           console.log('timeout2');
+           try {
+               document.getElementById('ㅋㅋㅋㅋ').id;
+           }catch (e){
+               console.log('오류가 났다!')
+           }
+
+           setTimeout(() => {
+               console.log('timeout3');
+           }, 3000);
+
+       }, 2000);
+
+   }, 1000);
+
+ // // 2. 2초 뒤에 실행되는 콜백함수이기에, 이미 try구문이 지나간 후 작동됨 (비동기식)
+ // // 그래서 try가 오류를 잡아내지 못해서,
+ // // 오류가 난다
+ //    setTimeout(() => {
+ //        console.log('timeout1');
+ //
+ //        try {
+ //            setTimeout(() => {
+ //                console.log('timeout2');
+ //                document.getElementById('ㅋㅋㅋㅋ').id;
+ //                setTimeout(() => {
+ //                    console.log('timeout3');
+ //                }, 3000);
+ //
+ //            }, 2000);
+ //        }catch (e){
+ //            console.log('오류가 났다!')
+ //        }
+ //    }, 1000);
+
+
+/**********************************************************/
+// 3. 프로미스로 해결가능
+
+</script>
