@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="01_T_way_1.css">
+</head>
+<body>
+    <section>
+        <div>
+            <div class="icon-container">
+                <i class="bi bi-usb-plug"></i>
+            </div>
+        </div>
+        <div>
+            <div class="discount-container">
+                <span>할인코드</span>
+                <button>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <section class="discount-information-container">
+                        <h3>할인코드란?</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus fugit consectetur ullam atque in magnam eum veniam. Eum minima necessitatibus enim hic ad? Nostrum eum ut tempore cumque suscipit!</p>
+                    </section>
+                </button>
+            </div>
+            
+            <div class="discount-code-container">
+                <!-- input은 대부분 label안에 구성한다-->
+                <label><input type="text" placeholder="할인코드 입력"></label>
+            </div>
+
+            <div class="discount-summary-container">
+                <button>할인코드 규정</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    const input = document.querySelector('.discount-code-container input');
+    const iconContainer = document.querySelector('.icon-container');
+    
+    /* input 입력시, 아이콘 배경이 빨간색으로 변함*/
+    input.onfocus = () => {
+        iconContainer.style.backgroundColor = 'red';
+    }
+
+    /* 포커싱이 끝나면, 기존 배경색으로 바꾸기*/
+    input.onblur = () => {
+        iconContainer.style.backgroundColor = 'darkgray';
+    }
+
+</script>

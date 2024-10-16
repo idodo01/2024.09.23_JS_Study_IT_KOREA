@@ -1,0 +1,124 @@
+section > div {
+    display:inline-block; /* 글자처럼 옆에 위치하게 됨*/
+    vertical-align: top; /* 기준을 위쪽으로 바꾸어서, 붓 아이콘이 위에 붙도록 함*/
+    /* border: 1px solid black;
+    background-color: aliceblue; */
+}
+
+/* 1. 붓 모양 아이콘 */
+.icon-container {
+    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* 테두리를 적용해야 보임*/
+    /* border: 1px solid black; 테두리 적용 */
+    background-color: darkgray;
+
+    /* 아이콘을 중앙으로 위치하게 함 */
+    display: flex; /* 내부 자식들을 정렬시킬 수 있어짐*/
+    justify-content: center; /* 수평 방향에서 중앙 */
+    align-items: center; /* 높이가 다른 요소들을 수직 방향에서 중앙으로 모이도록 */
+}
+
+.icon-container i {
+    
+    font-size: 20px; /* 아이콘은 폰트사이즈로 조절가능*/
+    color: white;
+
+}
+/* 2. 할인코드와 물음표 버튼, 수평 정렬 맞추기*/
+.discount-container {
+    display: flex;
+    align-items: center;
+}
+
+/* 2.1 느낌표 버튼*/
+.discount-container > button {
+
+    position: relative; /* 내 위치를 기준으로 
+    
+    left, top 등을 이용하여 이동가능 */
+
+    border: none; /* 버튼의 테두리를 없애줌 */
+    background-color: unset; /* 버튼의 배경을 없애줌*/
+    
+    /* 느낌표 버튼에 마우스를 올렸을 때
+    section의 내용이 나오도록 */
+    &:hover > .discount-information-container{
+        display: block;
+    }
+}
+
+/* 2.2 느낌표 버튼 안의 아이콘*/
+.discount-container i {
+    /* 아이콘 자체가 버튼내에서 100%으로의 크기가 되도록*/
+    width: 100%;
+
+    cursor: pointer;
+    &:hover {
+        color:cornflowerblue;
+    }
+}
+
+/* 3. 할인 코드 입력*/
+
+.discount-code-container {
+    margin-bottom: 5px; 
+}
+
+.discount-code-container input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+/* 4. 할인 코드 규정*/
+.discount-summary-container > button {
+    background-color: white;
+    padding: 2px 5px;
+
+    border-radius: 4px; /* 가장자리 둥글게*/
+    border : 1px solid black;
+
+    cursor: pointer;
+}
+
+
+/*******************************************/
+/* 5. 물음표 아이콘 클릭시 나오는 section */
+.discount-information-container {
+    display: none;
+    
+    position: absolute; /* 독자적으로 움직임*/
+    /* 부모기준으로 작동, 
+    부모가 아무런 설정이 안되어있으면 body 기준으로 작동
+    
+    부모인 .discount-container > button에 설정을 해줘야함
+    position: relative; 추가
+    */
+    bottom: -75px;
+    left: -80px;
+   
+
+    text-align: left; /* 왼쪽 정렬 */
+    padding: 0px 10px; /* 내부 공간*/
+
+    width:200px;
+    border: 1px solid black;
+    border-radius: 4px;
+
+    background-color: white;
+    
+}
+
+.discount-information-container h3 {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    
+}
+
+.discount-information-container p{
+    font-size: 8px;
+    color:darkgrey;
+    margin-top: 1px;
+}
+

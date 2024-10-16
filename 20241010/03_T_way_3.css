@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 #city-input-container{
-    display: flex;
+    display: flex; 
     width: 200px;
     position: relative;
     top: 100px;
@@ -14,7 +14,7 @@
 #city-input-container > input{
     flex: 1;
     padding: 2px 5px;
-    border: unset;
+    border: unset; /* 스타일을 새로 적용시킬 때, 초기화 용도*/
     border-bottom: 1px solid black;
     outline: unset;
 }
