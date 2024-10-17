@@ -12,7 +12,7 @@
     }
     div{
         display: flex; /* 내부에 있는 요소를 꽉차게 해줌 */
-        align-items: center;/* 수직 방향에서 중앙 */
+        align-items: center;/* 높이가 다른 요소들을 수직 방향에서 중앙으로 모이도록 */
     }
     label{
         display: flex; /* 내부에 있는 요소를 꽉차게 해줌 */
@@ -25,7 +25,7 @@
     }
 
 
-    
+    /* <input type="number"> 하면서 생기는 위아래 버튼을 제거하는 코드 */
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -38,17 +38,19 @@
         -moz-appearance: textfield;
     }
 
+
+    /* 테두리 작업 */
     div{
         width: 100px;
         border: 1px solid rgba(0,0,0,0.5);
         border-radius: 2px;
-        overflow: hidden;
+        overflow: hidden; /* 자신을 벗어난 자식들은 숨겨라 */
     }
     label{
-        flex: 1;
+        flex: 1; /* 상위 태그인 div의 남는 부분을 꽉 채울거야 */
     }
     input{
-        flex: 1;
+        flex: 1; /* 상위 태그인 label의 남는 부분을 꽉 채울거야 */
     }
     button{
         border: none;
@@ -74,20 +76,29 @@
 <script>
     const [minusBtn, plusBtn] = document.getElementsByTagName('button');
     const numberInput = document.querySelector('input[type=number]');
-    // 드모르간 법칙
+
+    // oninput: input으로 값이 입력되었을 때
+    
     numberInput.oninput = () => {
         const number = +numberInput.value;
-        if( !(1 <= number && number <= 9) ){
+        if( !(1 <= number && number <= 9) ){ // 1이상 9이하의 범위이외에 입력했을 때
             numberInput.value = 1;
         }
+        // // 드모르간 법칙
+        // if( 1 > number || number > 9 ){ // 1보다 작거나, 9보다 클 때
+        //     numberInput.value = 1;
+        // }
     }
 
+    /* 마이너스 버튼 눌렀을 때*/
     minusBtn.onclick = () => {
         const number = +numberInput.value;
         if(number > 1){
             numberInput.value = number - 1;
         }
     };
+
+    /* 플러스 버튼 눌렀을 때*/
     plusBtn.onclick = () => {
         const number = +numberInput.value;
         if(number < 9){
