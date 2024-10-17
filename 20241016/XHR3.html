@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>XHR</title>
+</head>
+<body>
+<select id="">
+    <option selected disabled>선택하세요</option>
+    <option>건물명</option>
+    <option>도로명주소</option>
+    <option>지번주소</option>
+    <option>세대수</option>
+    <option>준공년월</option>
+</select>
+<hr>
+<section></section>
+</body>
+</html>
+<script>
+    const select = document.querySelector('select');
+    const section = document.querySelector('section');
+
+    select.onchange = () => {
+        request();
+    }
+
+    function request(){
+        // 다른 웹 서버와 비동기 통신이 가능한 xhr 객체
+        const xhr = new XMLHttpRequest();
+        // 내가 원하는 서버(컴퓨터)에 데이터를 요청할 준비
+        xhr.open("GET", "https://api.odcloud.kr/api/15076827/v1/uddi:8c5becde-9f93-4c0a-b534-b33ce2645970?page=1&perPage=10&serviceKey=WX%2FqIsVj4inhHOXPUgOGfxI7MQh1LIHyhfli2ch1DGUWsG37xoDDh724K5F05MzVG2OQJuigRzUq63r%2FnTMfRg%3D%3D");
+        // 데이터를 요청함 (보냄)
+        xhr.send();
+        // xhr.addEventListener('load', () => {});
+        xhr.onload = () => {
+            console.log('요청이 성공해서 응답이 왔음!');
+            // console.log(xhr.response);
+            const object = JSON.parse(xhr.response);
+            const datas = object.data;
+            section.textContent = '';
+            for(let i = 0; i < datas.length; i++){
+                // section.innerHTML += `<div>${datas[i]["건물명"]}</div>`;
+                //section.insertAdjacentHTML(`beforeend`, `<div>${datas[i]["건물명"]}</div>`);
+                section.insertAdjacentHTML(`beforeend`, `<div>${datas[i][select.value]}</div>`);
+            }
+            // object.
+            // console.log('응답 코드값:', object.code);
+            // console.log('응답 메세지:', object.msg);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

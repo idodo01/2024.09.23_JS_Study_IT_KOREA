@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>XHR</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    // 다른 웹 서버와 비동기 통신이 가능한 xhr 객체
+    const xhr = new XMLHttpRequest();
+    // 내가 원하는 서버(컴퓨터)에 데이터를 요청할 준비
+    xhr.open("GET", "https://api.odcloud.kr/api/15076827/v1/uddi:8c5becde-9f93-4c0a-b534-b33ce2645970?page=1&perPage=10&serviceKey=WX%2FqIsVj4inhHOXPUgOGfxI7MQh1LIHyhfli2ch1DGUWsG37xoDDh724K5F05MzVG2OQJuigRzUq63r%2FnTMfRg%3D%3D");
+    // 데이터를 요청함 (보냄)
+    xhr.send();
+
+    // 데이터 받음
+    // 방법1
+    // xhr.addEventListener('load', () => {});
+    // 방법2
+    // xhr.onload = () => {
+    //     console.log('요청이 성공해서 응답이 왔음!');
+    //
+    //     // 1)
+    //     //console.log(xhr.response);
+    //
+    //     // 2)
+    //     const object = JSON.parse(xhr.response);
+    //     // console.log(object);
+    //
+    //     // console.log('응답 코드값:', object.code);
+    //     // console.log('응답 메세지:', object.msg);
+    //
+    // }
+
+    // 3)
+    xhr.onload = () => {
+        console.log('요청이 성공해서 응답이 왔음!');
+        // console.log(xhr.response);
+        const object = JSON.parse(xhr.response);
+        const datas = object.data;
+        for(let i = 0; i < datas.length; i++){
+            console.log(datas[i]["건물명"]);
+        }
+        // object.
+        // console.log('응답 코드값:', object.code);
+        // console.log('응답 메세지:', object.msg);
+    }
+
+
+
+
+
+
+
+</script>
