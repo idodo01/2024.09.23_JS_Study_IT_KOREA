@@ -4,34 +4,50 @@
     box-sizing: border-box;
 }
 #city-input-container{
-    display: flex; 
+    display: flex; /* 꽉 차면서 가장자리 붙게 됨*/
     width: 200px;
+    position: relative; /* 내 위치를 기준으로 */
+     /* 부모인 city-input-container에 
     position: relative;
+    
+    자식인 city-list-container에
+    position: absolute;를 하는 것이 일반적인 모습
+    */
     top: 100px;
     margin: 0 auto;
 }
 
 #city-input-container > input{
-    flex: 1;
+    flex: 1; /* 부모의 남는 부분을 꽉 채움*/
     padding: 2px 5px;
     border: unset; /* 스타일을 새로 적용시킬 때, 초기화 용도*/
     border-bottom: 1px solid black;
     outline: unset;
 }
 #location-btn{
-    position: absolute;
+    position: absolute; /* 독자적으로 움직임*/
+    top: 50%;
+    right: 10px;
+    /* 부모인 city-input-containe 안에서
+    윗쪽 50%, 오른쪽 10px에 붙음*/
+    transform: translateY(-50%);
+
     background-color: unset;
     border: unset;
     color: red;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10px;
+
 }
 
 /**********************************************/
 #city-list-container{
     display: none;
-    position: absolute;
+    position: absolute; /* 독자적으로 움직임*/
+    /* 부모인 city-input-container에 
+    position: relative;
+    
+    자식인 city-list-container에
+    position: absolute;를 하는 것이 일반적인 모습
+    */
     width: 400px;
     padding: 10px;
     bottom: -300px;
@@ -45,7 +61,7 @@
     /* background-color: aqua; */
 }
 #city-search-container > label{
-    display: flex;
+    display: flex; /* 꽉 차면서 가장자리 붙게 됨*/
     padding: 2px 4px;
     border-bottom: 2px solid rgba(255,0,0,0.7);
 }
@@ -53,7 +69,8 @@
     margin-right: 5px;
 }
 #city-search-container input{
-    flex: 1;
+    flex: 1;  /* 부모의 남는 부분을 꽉 채움*/
+    
     border: unset;
     outline: unset;
 }
@@ -68,7 +85,7 @@
 #country-city-list-container li{
     display: flex;
     padding: 5px 10px;
-    justify-content: space-between;
+    justify-content: space-between; /* li 안에있는 요소들을 양쪽 배치하라*/
     cursor: pointer;
     &:hover{
         background-color: white;
@@ -79,6 +96,7 @@
     }
 }
 
+/* 대한민국 일본*/
 #country-city-list-container > div:first-child{
     flex: 1;
     margin-right: 10px;
