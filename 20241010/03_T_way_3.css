@@ -40,7 +40,11 @@
 
 /**********************************************/
 #city-list-container{
-    display: none;
+    display: none; /* 기본은 display:none인데,
+    active 속성이 들어오면
+    맨밑에 보면 알듯이
+    display: block;로 바뀜
+    */ 
     position: absolute; /* 독자적으로 움직임*/
     /* 부모인 city-input-container에 
     position: relative;
@@ -116,4 +120,7 @@
     &[active] {
         display: block;
     }
+    /* 기본은  display: none;인데,
+    active가 들어오면 display: block;*/
+    
 }
