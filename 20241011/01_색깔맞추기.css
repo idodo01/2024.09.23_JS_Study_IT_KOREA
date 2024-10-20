@@ -5,7 +5,7 @@
 
 body{
     background-color: black;
-    color: white;
+    color: white; /* 내부에 있는 것 모두 흰색*/
 }
 
 main{
@@ -16,23 +16,30 @@ main{
 h1{
     font-size: 50px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: center; /* 중앙 위치*/
     color: darksalmon;
 }
 
 .game-status-container{
-    display: flex;
-    justify-content: space-between;
+    display: flex; /* 부모 태그의 범위에서 꽉 채움*/
+    justify-content: space-between; /* 자식 태그인 div가 양쪽으로 배치되도록*/
     margin-bottom: 20px;
     font-size: 30px;
 }
 .game-status-container b{
-    margin-right: 15px;
+    margin-right: 15px; /* b태그와 span태그 사이 간격*/
 }
 /*************************************************/
 .color-button-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 한줄에 2개 배치*/
+    grid-template-rows: repeat(2, 1fr); 
     height: 600px;
+    /*
+    main{
+        width: 600px;
+    }
+    영향을 받고 있어서, 정사각형으로 나옴
+    
+    */
 }
