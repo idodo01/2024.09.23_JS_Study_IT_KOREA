@@ -6,6 +6,9 @@
 
 body{
     text-align: center;
+    /* inline 요소가 있으면,
+    텍스트처럼 인식해서 text-align으로
+    중앙 정렬 가능 */
 }
 #answer-sheet{
     margin: 20px;
@@ -14,9 +17,16 @@ body{
     width: 30px;
     height: 30px;
     margin: 0 5px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-flex; 
+    /* span은 inline이기에 
+    글자가 없을 때
+    공간이 안만들어진다
+    
+    inline-flex로 해주고
+    width, height로 바꿔줘야한다*/
+
+    justify-content: center; /* 좌우 중앙*/
+    align-items: center; /* 위아래 중앙*/
     border-bottom: 1px solid black;
     background-color: aliceblue;
 }
